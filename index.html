@@ -113,6 +113,9 @@
     .tool-toggle { margin-left: auto; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; }
     .tool-toggle:hover { background: rgba(255,255,255,.22); }
     .flow-arrow { color: #9ca3af; font-weight: 700; }
+    .current-file { font-size: 12px; color: #374151; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; padding: 5px 10px; font-weight: 600; }
+    .spinner { width: 34px; height: 34px; border: 4px solid #e5e7eb; border-top-color: #6366f1; border-radius: 50%; margin: 0 auto; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
     canvas { max-height: 280px; }
 
     /* Toast */
@@ -184,17 +187,15 @@
     <h1>User Story Compliance Report</h1>
     <p>Template compliance analysis based on Change Request Template</p>
   </div>
-  <button id="toolToggle" class="tool-toggle" onclick="toggleToolbar()">⚙️ Dữ liệu &amp; bộ lọc ▾</button>
 </header>
 
-<div class="toolbar" id="toolbar" style="display:none;">
+<div class="toolbar" id="toolbar">
   <div class="upload-group">
-    <label>📂 Nguồn dữ liệu — tải lên rồi phân tích</label>
+    <label>📂 Data Source</label>
     <div class="upload-row">
-      <input type="file" id="fileInput" accept=".csv" onchange="uploadCSV()" />
-      <span class="data-badge" id="dataBadge">✓ Data loaded</span>
+      <span class="current-file" id="currentFile">📄 stories.csv</span>
       <span class="flow-arrow">→</span>
-      <button class="btn btn-primary btn-sm" id="analyzeBtn" onclick="analyzeAI()">🤖 Phân tích bằng AI</button>
+      <button class="btn btn-primary btn-sm" id="analyzeBtn" onclick="analyzeAI()">🤖 AI Analysis</button>
     </div>
   </div>
   <div class="filter-group">
@@ -224,17 +225,9 @@
 </div>
 
 <div class="main" id="main">
-  <div class="landing">
-    <div class="landing-icon">🤖📋</div>
-    <h2>Trợ lý báo cáo tuân thủ User Story</h2>
-    <p>Agent dùng AI chấm mức độ tuân thủ <strong>Change Request Template</strong> của từng ticket
-       (Context · Requirement · Acceptance Criteria), tổng hợp thành báo cáo trực quan, kèm trợ lý PM hỏi đáp.</p>
-    <p class="landing-status" id="landingStatus">📦 Đang tải thông tin dữ liệu…</p>
-    <div class="landing-actions">
-      <button class="btn btn-primary" onclick="analyzeAI()">🤖 Phân tích bằng AI</button>
-      <button class="btn btn-ghost" onclick="document.getElementById('fileInput').click()">📂 Tải lên CSV khác</button>
-    </div>
-    <p class="landing-hint">Bấm “Phân tích bằng AI” để AI chấm bộ dữ liệu hiện có rồi hiện báo cáo.</p>
+  <div class="empty" id="homePrompt">
+    <div style="font-size:42px">🤖📋</div>
+    <p style="margin-top:10px">Bấm <strong>🤖 AI Analysis</strong> để AI chấm compliance và xem báo cáo.</p>
   </div>
 </div>
 
@@ -364,9 +357,6 @@ async function loadFromServer() {
     const res = await fetch('/api/data');
     const json = await res.json();
     if (json.exists && json.rows.length > 0) {
-      const badge = document.getElementById('dataBadge');
-      badge.classList.add('show');
-      badge.textContent = `✓ ${json.rows.length} rows loaded`;
       buildUI(json.rows);
       return true;
     }
@@ -379,6 +369,9 @@ async function analyzeAI() {
   const btn = document.getElementById('analyzeBtn');
   const old = btn.textContent;
   btn.disabled = true; btn.textContent = '⏳ Đang phân tích...';
+  document.getElementById('main').innerHTML =
+    '<div class="empty"><div class="spinner"></div>' +
+    '<p style="margin-top:16px">🤖 AI đang phân tích các ticket… vui lòng đợi trong giây lát.</p></div>';
   showToast('AI đang chấm compliance, có thể mất một lúc...');
   try {
     const res = await fetch('/api/analyze', {
@@ -386,12 +379,17 @@ async function analyzeAI() {
       body: JSON.stringify({})       // thêm {"limit": 50} nếu muốn chấm nhanh một phần
     });
     const d = await res.json();
-    if (!res.ok) { showToast(d.error || 'Lỗi phân tích', false); }
-    else {
+    if (!res.ok) {
+      showToast(d.error || 'Lỗi phân tích', false);
+      document.getElementById('main').innerHTML = '<div class="empty">⚠️ ' + (d.error || 'Lỗi phân tích') + '</div>';
+    } else {
       showToast(`Đã chấm ${d.analyzed}/${d.total} ticket bằng ${d.model}`);
-      await loadFromServer();        // tải lại data đã AI-chấm + vẽ lại dashboard
+      await loadFromServer();        // render báo cáo (KPI + bảng, không chart)
     }
-  } catch (e) { showToast('Lỗi: ' + e, false); }
+  } catch (e) {
+    showToast('Lỗi: ' + e, false);
+    document.getElementById('main').innerHTML = '<div class="empty">⚠️ Lỗi: ' + e + '</div>';
+  }
   btn.disabled = false; btn.textContent = old;
 }
 
@@ -426,10 +424,7 @@ async function updateTicket(ticketId) {
   boxEl.style.borderColor = '#22c55e';
 
   const filtered = getFiltered();
-  destroyCharts();
   renderKPI(filtered);
-  renderMonthChart(filtered);
-  renderPieChart(filtered);
   renderSquadTable(filtered);
 
   // Re-render person panel if it's still open
@@ -466,7 +461,7 @@ function applyFilters() {
 }
 
 // ── Render ───────────────────────────────────────────────────────
-function renderAll(data) { destroyCharts(); renderKPI(data); renderMonthChart(data); renderPieChart(data); renderSquadTable(data); }
+function renderAll(data) { renderKPI(data); renderSquadTable(data); }
 
 function renderKPI(data) {
   const t=data.length, c=countCats(data);
@@ -615,10 +610,6 @@ function buildUI(data) {
   populateSquads(data);
   document.getElementById('main').innerHTML=`
     <div class="kpi-grid" id="kpi-grid"></div>
-    <div class="chart-row">
-      <div class="card"><h2>📈 Monthly Distribution</h2><canvas id="barChart"></canvas></div>
-      <div class="card"><h2>🍩 Overall Compliance Rate</h2><canvas id="pieChart"></canvas></div>
-    </div>
     <div class="card">
       <h2>🏢 Squad Statistics <span style="font-size:11px;color:#9ca3af;font-weight:400">(click a squad to see members)</span></h2>
       <div class="table-wrap"><table id="squadTable"></table></div>
@@ -648,21 +639,7 @@ function toggleToolbar() {
   document.getElementById('toolToggle').textContent = '⚙️ Dữ liệu & bộ lọc ' + (open ? '▴' : '▾');
 }
 
-// Trang chủ: chỉ đọc SỐ LƯỢNG ticket để hiện trạng thái, KHÔNG render dashboard (tránh số liệu set sẵn)
-async function initLanding() {
-  try {
-    const res = await fetch('/api/data');
-    const json = await res.json();
-    const n = (json.rows || []).length;
-    const el = document.getElementById('landingStatus');
-    if (el) el.textContent = n
-      ? `📦 Bộ dữ liệu hiện có: ${n} ticket — chưa chấm AI`
-      : '📦 Chưa có dữ liệu — hãy tải lên một file CSV';
-    const badge = document.getElementById('dataBadge');
-    if (n && badge) { badge.classList.add('show'); badge.textContent = `✓ ${n} rows loaded`; }
-  } catch {}
-}
-window.addEventListener('DOMContentLoaded', initLanding);
+// Trang chủ = trang report; báo cáo chỉ hiện sau khi bấm "AI Analysis".
 
 // ── Template PDF download ─────────────────────────────────────────
 function downloadTemplatePDF() {

@@ -206,6 +206,9 @@ def build_data_context() -> str:
     rows = _load_rows()
     if not rows:
         return "Hiện chưa có dữ liệu ticket nào được upload."
+    if not any((r.get("Template Category") or "").strip() for r in rows):
+        return (f"Đã có {len(rows)} ticket nhưng CHƯA được AI chấm. "
+                "Hãy đề nghị người dùng bấm 'AI Analysis' trước khi hỏi về tỉ lệ tuân thủ.")
 
     total = len(rows)
     cat = Counter((r.get("Template Category") or "").strip() for r in rows)
@@ -308,8 +311,10 @@ def analyze():
         list(ex.map(work, targets))
 
     fieldnames = list(rows[0].keys())
+    if "Template Category" not in fieldnames:     # cột này do AI tạo ra
+        fieldnames.append("Template Category")
     with open(DATA_FILE, "w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
 
