@@ -1,0 +1,3522 @@
+﻿TicketID,Người tạo,Squad Name,Ngày tạo,Description,Status,Template Category
+CR-1039,Hoàng Thị Em,Squad Payment,2026-01-01,,IN REVIEW,Trống
+CR-1057,Cao Thị Mai,Squad Payment,2026-01-01,"DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,50% template
+CR-1063,Cao Thị Mai,Squad Payment,2026-01-01,Refactor module analytics để tách concerns.,IN REVIEW,Không theo template
+CR-1019,Cao Thị Mai,Squad Payment,2026-01-02,Thêm tính năng share link.,CLOSED,Không theo template
+CR-1008,Đinh Văn Khoa,Squad Data,2026-01-03,"Màn hình profile không hiển thị loyalty points của user.
+
+**Acceptance Criteria**
+- Pass test.",READY FOR RELEASE,50% template
+CR-1021,Ngô Thị Lan,Squad Platform,2026-01-03,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",CLOSED,80% template
+CR-1026,Bùi Thanh Hải,Squad Mobile,2026-01-03,Thêm tính năng share link.,DONE,Không theo template
+CR-1034,Ngô Thị Lan,Squad Platform,2026-01-03,Nâng cấp Python 3.11 trên môi trường production.,CLOSED,Không theo template
+CR-1062,Trần Thị Bích,Squad Mobile,2026-01-03,Refactor module payment để tách concerns.,IN PROGRESS,Không theo template
+CR-1006,Đặng Thị Giang,Squad Growth,2026-01-05,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+- Cần thêm tính năng notification cho service.",IN PROGRESS,50% template
+CR-1061,Cao Thị Mai,Squad Payment,2026-01-05,,READY FOR RELEASE,Trống
+CR-1069,Trần Thị Bích,Squad Mobile,2026-01-05,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",TESTING,100% template
+CR-1025,Bùi Thanh Hải,Squad Mobile,2026-01-06,,DONE,Trống
+CR-1029,Lê Minh Châu,Squad Data,2026-01-07,Fix bug timezone hiển thị sai trên Android 12.,DONE,Không theo template
+CR-1033,Đinh Văn Khoa,Squad Data,2026-01-07,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Coverage > 80%.",TESTING,80% template
+CR-1016,Đinh Văn Khoa,Squad Data,2026-01-08,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+- Cần thêm tính năng filter cho service.",DONE,50% template
+CR-1017,Bùi Thanh Hải,Squad Mobile,2026-01-08,"User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,50% template
+CR-1004,Hoàng Thị Em,Squad Payment,2026-01-09,Fix bug pagination không đúng trên Chrome.,IN REVIEW,Không theo template
+CR-1043,Phạm Quốc Dũng,Squad Platform,2026-01-10,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+- Cần thêm tính năng export cho service.",DONE,50% template
+CR-1055,Trịnh Minh Long,Squad Platform,2026-01-10,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",CLOSED,100% template
+CR-1060,Cao Thị Mai,Squad Payment,2026-01-10,Update react-native theo yêu cầu mới.,CLOSED,Không theo template
+CR-1067,Đặng Thị Giang,Squad Growth,2026-01-11,Nâng cấp Node.js 18 trên môi trường production.,IN PROGRESS,Không theo template
+CR-1007,Hoàng Thị Em,Squad Payment,2026-01-12,Nâng cấp Python 3.11 trên môi trường production.,CLOSED,Không theo template
+CR-1014,Trịnh Minh Long,Squad Platform,2026-01-12,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+- Cần thêm tính năng export cho service.",DONE,50% template
+CR-1044,Lê Minh Châu,Squad Data,2026-01-12,,READY FOR RELEASE,Trống
+CR-1001,Vũ Đức Phong,Squad Payment,2026-01-13,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Error rate < 1%.",TESTING,80% template
+CR-1045,Bùi Thanh Hải,Squad Mobile,2026-01-13,Thêm tính năng export Excel.,CLOSED,Không theo template
+CR-1020,Nguyễn Văn An,Squad Growth,2026-01-14,Nâng cấp Node.js 18 trên môi trường production.,IN PROGRESS,Không theo template
+CR-1064,Lê Minh Châu,Squad Data,2026-01-14,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",READY FOR RELEASE,80% template
+CR-1010,Nguyễn Văn An,Squad Growth,2026-01-15,Tối ưu query database cho checkout flow.,IN REVIEW,Không theo template
+CR-1013,Lê Minh Châu,Squad Data,2026-01-17,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",READY FOR RELEASE,100% template
+CR-1028,Đinh Văn Khoa,Squad Data,2026-01-17,,TESTING,Trống
+CR-1047,Ngô Thị Lan,Squad Platform,2026-01-17,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",READY FOR RELEASE,80% template
+CR-1052,Lê Minh Châu,Squad Data,2026-01-17,,READY FOR RELEASE,Trống
+CR-1015,Đinh Văn Khoa,Squad Data,2026-01-18,,IN REVIEW,Trống
+CR-1024,Cao Thị Mai,Squad Payment,2026-01-18,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Coverage > 80%.",IN PROGRESS,80% template
+CR-1037,Đinh Văn Khoa,Squad Data,2026-01-18,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Error rate < 1%.",TESTING,80% template
+CR-1058,Ngô Thị Lan,Squad Platform,2026-01-18,Thêm tính năng push notification.,CLOSED,Không theo template
+CR-1056,Trịnh Minh Long,Squad Platform,2026-01-19,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1030,Đặng Thị Giang,Squad Growth,2026-01-20,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Product)**
+- Entry point: Menu.
+- UI: Thêm button.",TESTING,50% template
+CR-1048,Phạm Quốc Dũng,Squad Platform,2026-01-20,,TESTING,Trống
+CR-1051,Đinh Văn Khoa,Squad Data,2026-01-20,Nâng cấp Python 3.11 trên môi trường production.,DONE,Không theo template
+CR-1053,Trịnh Minh Long,Squad Platform,2026-01-20,,TESTING,Trống
+CR-1070,Nguyễn Văn An,Squad Growth,2026-01-20,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN PROGRESS,80% template
+CR-1066,Vũ Đức Phong,Squad Payment,2026-01-21,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+- Cần thêm tính năng filter cho service.",IN REVIEW,50% template
+CR-1002,Trần Thị Bích,Squad Mobile,2026-01-22,,TESTING,Trống
+CR-1009,Vũ Đức Phong,Squad Payment,2026-01-22,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Error rate < 1%.",CLOSED,80% template
+CR-1027,Hoàng Thị Em,Squad Payment,2026-01-22,,IN PROGRESS,Trống
+CR-1023,Hoàng Thị Em,Squad Payment,2026-01-23,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Update form.",IN PROGRESS,50% template
+CR-1035,Bùi Thanh Hải,Squad Mobile,2026-01-23,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.",IN PROGRESS,50% template
+CR-1046,Phạm Quốc Dũng,Squad Platform,2026-01-24,Nâng cấp Node.js 18 trên môi trường production.,CLOSED,Không theo template
+CR-1059,Nguyễn Văn An,Squad Growth,2026-01-24,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1018,Trần Thị Bích,Squad Mobile,2026-01-26,Refactor module analytics để tách concerns.,CLOSED,Không theo template
+CR-1032,Đinh Văn Khoa,Squad Data,2026-01-26,Tối ưu API response cho màn hình chính.,TESTING,Không theo template
+CR-1041,Hoàng Thị Em,Squad Payment,2026-01-26,,READY FOR RELEASE,Trống
+CR-1042,Cao Thị Mai,Squad Payment,2026-01-26,Update design theo yêu cầu mới.,CLOSED,Không theo template
+CR-1036,Ngô Thị Lan,Squad Platform,2026-01-27,,TESTING,Trống
+CR-1054,Vũ Đức Phong,Squad Payment,2026-01-27,,IN REVIEW,Trống
+CR-1065,Nguyễn Văn An,Squad Growth,2026-01-27,"Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Acceptance Criteria**
+- p95 < 1s.",DONE,50% template
+CR-1022,Trần Thị Bích,Squad Mobile,2026-01-28,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+- Cần thêm tính năng filter cho service.",TESTING,50% template
+CR-1049,Trịnh Minh Long,Squad Platform,2026-01-28,Update react-native theo yêu cầu mới.,CLOSED,Không theo template
+CR-1005,Đinh Văn Khoa,Squad Data,2026-01-29,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Coverage > 80%.",READY FOR RELEASE,80% template
+CR-1031,Vũ Đức Phong,Squad Payment,2026-01-29,"Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,50% template
+CR-1038,Ngô Thị Lan,Squad Platform,2026-01-29,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm toggle button.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1003,Cao Thị Mai,Squad Payment,2026-01-30,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1040,Cao Thị Mai,Squad Payment,2026-01-30,,TESTING,Trống
+CR-1011,Bùi Thanh Hải,Squad Mobile,2026-01-31,Fix bug màn hình login crash trên Chrome.,IN REVIEW,Không theo template
+CR-1012,Đinh Văn Khoa,Squad Data,2026-01-31,Thêm tính năng share link.,IN REVIEW,Không theo template
+CR-1050,Trịnh Minh Long,Squad Platform,2026-01-31,Update react-native theo yêu cầu mới.,CLOSED,Không theo template
+CR-1068,Ngô Thị Lan,Squad Platform,2026-01-31,Thêm tính năng share link.,IN REVIEW,Không theo template
+CR-1122,Nguyễn Văn An,Squad Growth,2026-02-02,,DONE,Trống
+CR-1085,Trịnh Minh Long,Squad Platform,2026-02-03,,IN REVIEW,Trống
+CR-1090,Ngô Thị Lan,Squad Platform,2026-02-03,Update react-native theo yêu cầu mới.,IN PROGRESS,Không theo template
+CR-1096,Hoàng Thị Em,Squad Payment,2026-02-03,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+- Cần thêm tính năng export cho service.",IN PROGRESS,50% template
+CR-1105,Nguyễn Văn An,Squad Growth,2026-02-03,Tối ưu memory usage cho checkout flow.,READY FOR RELEASE,Không theo template
+CR-1133,Nguyễn Văn An,Squad Growth,2026-02-03,"Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,50% template
+CR-1135,Cao Thị Mai,Squad Payment,2026-02-04,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1136,Hoàng Thị Em,Squad Payment,2026-02-04,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Error rate < 1%.",READY FOR RELEASE,80% template
+CR-1088,Trịnh Minh Long,Squad Platform,2026-02-05,Fix bug timezone hiển thị sai trên Android 12.,CLOSED,Không theo template
+CR-1124,Cao Thị Mai,Squad Payment,2026-02-05,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Coverage > 80%.",TESTING,80% template
+CR-1130,Ngô Thị Lan,Squad Platform,2026-02-05,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Coverage > 80%.",CLOSED,80% template
+CR-1086,Trần Thị Bích,Squad Mobile,2026-02-06,Update UI theo yêu cầu mới.,TESTING,Không theo template
+CR-1111,Bùi Thanh Hải,Squad Mobile,2026-02-06,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Coverage > 80%.",READY FOR RELEASE,80% template
+CR-1141,Bùi Thanh Hải,Squad Mobile,2026-02-07,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1077,Lê Minh Châu,Squad Data,2026-02-08,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Menu.
+- UI: Update form.",IN PROGRESS,50% template
+CR-1139,Đinh Văn Khoa,Squad Data,2026-02-08,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+- Cần thêm tính năng notification cho service.",READY FOR RELEASE,50% template
+CR-1097,Cao Thị Mai,Squad Payment,2026-02-09,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Coverage > 80%.",IN PROGRESS,80% template
+CR-1126,Hoàng Thị Em,Squad Payment,2026-02-09,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: api-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",READY FOR RELEASE,80% template
+CR-1087,Cao Thị Mai,Squad Payment,2026-02-10,Thêm tính năng push notification.,IN REVIEW,Không theo template
+CR-1089,Cao Thị Mai,Squad Payment,2026-02-10,Thêm tính năng push notification.,TESTING,Không theo template
+CR-1110,Đặng Thị Giang,Squad Growth,2026-02-10,,READY FOR RELEASE,Trống
+CR-1145,Trần Thị Bích,Squad Mobile,2026-02-10,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Hồ sơ screen.
+- UI changes: toggle button.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: apply_filter.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1128,Trần Thị Bích,Squad Mobile,2026-02-11,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+- Cần thêm tính năng export cho service.",IN REVIEW,50% template
+CR-1140,Lê Minh Châu,Squad Data,2026-02-11,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",READY FOR RELEASE,100% template
+CR-1098,Nguyễn Văn An,Squad Growth,2026-02-13,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN PROGRESS,100% template
+CR-1101,Đinh Văn Khoa,Squad Data,2026-02-13,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: user-service.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1084,Đinh Văn Khoa,Squad Data,2026-02-14,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: api-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1108,Phạm Quốc Dũng,Squad Platform,2026-02-14,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Product)**
+- Entry point: Menu.
+- UI: Update form.",IN PROGRESS,50% template
+CR-1132,Hoàng Thị Em,Squad Payment,2026-02-14,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+- Cần thêm tính năng retry cho service.",IN PROGRESS,50% template
+CR-1137,Vũ Đức Phong,Squad Payment,2026-02-14,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+- Cần thêm tính năng filter cho service.",TESTING,50% template
+CR-1112,Lê Minh Châu,Squad Data,2026-02-15,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+- Cần thêm tính năng retry cho service.",IN PROGRESS,50% template
+CR-1072,Cao Thị Mai,Squad Payment,2026-02-16,,READY FOR RELEASE,Trống
+CR-1073,Cao Thị Mai,Squad Payment,2026-02-16,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm dropdown menu.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1082,Hoàng Thị Em,Squad Payment,2026-02-16,Fix bug màn hình login crash trên iOS 16.,IN PROGRESS,Không theo template
+CR-1100,Bùi Thanh Hải,Squad Mobile,2026-02-16,"Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Acceptance Criteria**
+- Pass test.",IN REVIEW,50% template
+CR-1123,Lê Minh Châu,Squad Data,2026-02-16,Thêm tính năng dark mode.,READY FOR RELEASE,Không theo template
+CR-1143,Hoàng Thị Em,Squad Payment,2026-02-16,Fix bug email validation lỗi trên Safari.,TESTING,Không theo template
+CR-1074,Bùi Thanh Hải,Squad Mobile,2026-02-17,,TESTING,Trống
+CR-1104,Vũ Đức Phong,Squad Payment,2026-02-17,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Coverage > 80%.",READY FOR RELEASE,80% template
+CR-1131,Phạm Quốc Dũng,Squad Platform,2026-02-17,Fix bug màn hình login crash trên Safari.,CLOSED,Không theo template
+CR-1071,Đặng Thị Giang,Squad Growth,2026-02-18,,IN REVIEW,Trống
+CR-1094,Lê Minh Châu,Squad Data,2026-02-18,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1102,Bùi Thanh Hải,Squad Mobile,2026-02-19,,TESTING,Trống
+CR-1113,Phạm Quốc Dũng,Squad Platform,2026-02-19,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1138,Vũ Đức Phong,Squad Payment,2026-02-19,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Cài đặt.
+- UI changes: Thêm dropdown menu.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- API giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1083,Hoàng Thị Em,Squad Payment,2026-02-20,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",TESTING,80% template
+CR-1095,Trịnh Minh Long,Squad Platform,2026-02-20,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN PROGRESS,80% template
+CR-1109,Hoàng Thị Em,Squad Payment,2026-02-20,Nâng cấp PostgreSQL 15 trên môi trường production.,DONE,Không theo template
+CR-1121,Phạm Quốc Dũng,Squad Platform,2026-02-20,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1127,Trịnh Minh Long,Squad Platform,2026-02-20,Thêm tính năng export Excel.,IN REVIEW,Không theo template
+CR-1091,Hoàng Thị Em,Squad Payment,2026-02-21,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Upgrade dependency.
+- Database changes: Thêm bảng audit_log.
+- Services involved: user-service.
+- Config: CACHE_TTL=300.
+
+**Acceptance Criteria**
+- Tính năng giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1116,Trịnh Minh Long,Squad Platform,2026-02-22,Fix bug pagination không đúng trên iOS 16.,TESTING,Không theo template
+CR-1120,Cao Thị Mai,Squad Payment,2026-02-22,Thêm tính năng push notification.,IN PROGRESS,Không theo template
+CR-1129,Vũ Đức Phong,Squad Payment,2026-02-22,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm toggle button.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- Tính năng giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1144,Trịnh Minh Long,Squad Platform,2026-02-22,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",DONE,50% template
+CR-1078,Lê Minh Châu,Squad Data,2026-02-23,,IN REVIEW,Trống
+CR-1092,Hoàng Thị Em,Squad Payment,2026-02-23,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",CLOSED,100% template
+CR-1107,Trịnh Minh Long,Squad Platform,2026-02-23,Tối ưu bundle size cho trang danh sách.,TESTING,Không theo template
+CR-1125,Ngô Thị Lan,Squad Platform,2026-02-23,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Cài đặt screen.
+- UI changes: dropdown menu.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: view_profile.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1075,Hoàng Thị Em,Squad Payment,2026-02-24,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+- Cần thêm tính năng retry cho service.",IN REVIEW,50% template
+CR-1076,Vũ Đức Phong,Squad Payment,2026-02-24,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng rate_limit_config.
+- Services involved: payment-service.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- API giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN REVIEW,100% template
+CR-1117,Phạm Quốc Dũng,Squad Platform,2026-02-24,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+- Cần thêm tính năng notification cho service.",IN REVIEW,50% template
+CR-1119,Trịnh Minh Long,Squad Platform,2026-02-24,Tối ưu memory usage cho trang danh sách.,READY FOR RELEASE,Không theo template
+CR-1142,Lê Minh Châu,Squad Data,2026-02-24,Refactor module payment để tách concerns.,READY FOR RELEASE,Không theo template
+CR-1106,Cao Thị Mai,Squad Payment,2026-02-25,Refactor module notification để tách concerns.,DONE,Không theo template
+CR-1114,Trịnh Minh Long,Squad Platform,2026-02-25,Thêm tính năng share link.,TESTING,Không theo template
+CR-1115,Trịnh Minh Long,Squad Platform,2026-02-25,,READY FOR RELEASE,Trống
+CR-1134,Vũ Đức Phong,Squad Payment,2026-02-26,Refactor module analytics để tách concerns.,CLOSED,Không theo template
+CR-1081,Vũ Đức Phong,Squad Payment,2026-02-27,,DONE,Trống
+CR-1093,Bùi Thanh Hải,Squad Mobile,2026-02-27,Fix bug màn hình login crash trên Safari.,IN REVIEW,Không theo template
+CR-1099,Lê Minh Châu,Squad Data,2026-02-27,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,80% template
+CR-1118,Lê Minh Châu,Squad Data,2026-02-27,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",IN REVIEW,50% template
+CR-1079,Trịnh Minh Long,Squad Platform,2026-02-28,,CLOSED,Trống
+CR-1080,Vũ Đức Phong,Squad Payment,2026-02-28,Tối ưu memory usage cho màn hình chính.,CLOSED,Không theo template
+CR-1103,Vũ Đức Phong,Squad Payment,2026-02-28,,CLOSED,Trống
+CR-1170,Bùi Thanh Hải,Squad Mobile,2026-03-01,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",DONE,80% template
+CR-1175,Trần Thị Bích,Squad Mobile,2026-03-02,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN PROGRESS,80% template
+CR-1200,Vũ Đức Phong,Squad Payment,2026-03-02,,TESTING,Trống
+CR-1204,Ngô Thị Lan,Squad Platform,2026-03-02,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1205,Phạm Quốc Dũng,Squad Platform,2026-03-02,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm toggle button.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1179,Hoàng Thị Em,Squad Payment,2026-03-03,Tối ưu bundle size cho trang danh sách.,CLOSED,Không theo template
+CR-1181,Ngô Thị Lan,Squad Platform,2026-03-03,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN REVIEW,80% template
+CR-1173,Trịnh Minh Long,Squad Platform,2026-03-04,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN PROGRESS,80% template
+CR-1159,Hoàng Thị Em,Squad Payment,2026-03-05,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+- Cần thêm tính năng retry cho service.",READY FOR RELEASE,50% template
+CR-1162,Đinh Văn Khoa,Squad Data,2026-03-05,Fix bug timezone hiển thị sai trên iOS 16.,IN REVIEW,Không theo template
+CR-1190,Phạm Quốc Dũng,Squad Platform,2026-03-05,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",DONE,80% template
+CR-1191,Bùi Thanh Hải,Squad Mobile,2026-03-05,Fix bug timezone hiển thị sai trên Android 12.,TESTING,Không theo template
+CR-1156,Lê Minh Châu,Squad Data,2026-03-06,,IN REVIEW,Trống
+CR-1178,Phạm Quốc Dũng,Squad Platform,2026-03-06,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Pass Staging test.",READY FOR RELEASE,80% template
+CR-1223,Đặng Thị Giang,Squad Growth,2026-03-06,Refactor module payment để tách concerns.,READY FOR RELEASE,Không theo template
+CR-1225,Phạm Quốc Dũng,Squad Platform,2026-03-06,Update design theo yêu cầu mới.,IN PROGRESS,Không theo template
+CR-1185,Đặng Thị Giang,Squad Growth,2026-03-07,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1160,Cao Thị Mai,Squad Payment,2026-03-08,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1169,Ngô Thị Lan,Squad Platform,2026-03-08,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Coverage > 80%.",IN PROGRESS,80% template
+CR-1184,Lê Minh Châu,Squad Data,2026-03-08,Tối ưu memory usage cho checkout flow.,READY FOR RELEASE,Không theo template
+CR-1202,Hoàng Thị Em,Squad Payment,2026-03-08,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+- Cần thêm tính năng notification cho service.",IN PROGRESS,50% template
+CR-1211,Đinh Văn Khoa,Squad Data,2026-03-08,Update design theo yêu cầu mới.,DONE,Không theo template
+CR-1152,Lê Minh Châu,Squad Data,2026-03-09,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.",TESTING,50% template
+CR-1217,Nguyễn Văn An,Squad Growth,2026-03-10,Update UI theo yêu cầu mới.,IN PROGRESS,Không theo template
+CR-1197,Trần Thị Bích,Squad Mobile,2026-03-11,,IN PROGRESS,Trống
+CR-1198,Nguyễn Văn An,Squad Growth,2026-03-11,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1212,Đặng Thị Giang,Squad Growth,2026-03-11,Thêm tính năng export Excel.,IN REVIEW,Không theo template
+CR-1213,Bùi Thanh Hải,Squad Mobile,2026-03-11,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+- Cần thêm tính năng export cho service.",IN PROGRESS,50% template
+CR-1227,Đặng Thị Giang,Squad Growth,2026-03-11,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1171,Đinh Văn Khoa,Squad Data,2026-03-12,Refactor module notification để tách concerns.,CLOSED,Không theo template
+CR-1210,Ngô Thị Lan,Squad Platform,2026-03-12,Nâng cấp PostgreSQL 15 trên môi trường production.,IN PROGRESS,Không theo template
+CR-1188,Lê Minh Châu,Squad Data,2026-03-13,,READY FOR RELEASE,Trống
+CR-1207,Bùi Thanh Hải,Squad Mobile,2026-03-13,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: api-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",READY FOR RELEASE,80% template
+CR-1164,Ngô Thị Lan,Squad Platform,2026-03-14,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",DONE,50% template
+CR-1146,Đặng Thị Giang,Squad Growth,2026-03-15,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1163,Lê Minh Châu,Squad Data,2026-03-15,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+- Cần thêm tính năng retry cho service.",TESTING,50% template
+CR-1189,Cao Thị Mai,Squad Payment,2026-03-16,Nâng cấp Redis 7 trên môi trường production.,IN PROGRESS,Không theo template
+CR-1203,Đặng Thị Giang,Squad Growth,2026-03-16,Thêm tính năng share link.,TESTING,Không theo template
+CR-1148,Đặng Thị Giang,Squad Growth,2026-03-17,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: api-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",READY FOR RELEASE,80% template
+CR-1149,Vũ Đức Phong,Squad Payment,2026-03-17,Tối ưu memory usage cho màn hình chính.,CLOSED,Không theo template
+CR-1224,Bùi Thanh Hải,Squad Mobile,2026-03-17,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",DONE,80% template
+CR-1199,Bùi Thanh Hải,Squad Mobile,2026-03-18,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Thêm button.",IN REVIEW,50% template
+CR-1151,Trịnh Minh Long,Squad Platform,2026-03-20,"Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,50% template
+CR-1206,Trịnh Minh Long,Squad Platform,2026-03-20,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Cài đặt.
+- UI changes: Thêm toggle button.
+- States: loading, empty, error.
+- Tracking: screen_view: view_profile.
+
+**Acceptance Criteria**
+- Service giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN PROGRESS,100% template
+CR-1209,Hoàng Thị Em,Squad Payment,2026-03-20,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+- Cần thêm tính năng retry cho service.",CLOSED,50% template
+CR-1172,Ngô Thị Lan,Squad Platform,2026-03-21,Nâng cấp Python 3.11 trên môi trường production.,READY FOR RELEASE,Không theo template
+CR-1192,Trần Thị Bích,Squad Mobile,2026-03-21,Nâng cấp Python 3.11 trên môi trường production.,IN PROGRESS,Không theo template
+CR-1215,Trịnh Minh Long,Squad Platform,2026-03-21,Tối ưu API response cho màn hình chính.,READY FOR RELEASE,Không theo template
+CR-1221,Lê Minh Châu,Squad Data,2026-03-21,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+- Cần thêm tính năng filter cho service.",IN REVIEW,50% template
+CR-1154,Cao Thị Mai,Squad Payment,2026-03-22,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Menu.
+- UI: Thêm button.",READY FOR RELEASE,50% template
+CR-1182,Đinh Văn Khoa,Squad Data,2026-03-22,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng retry_log.
+- Services involved: payment-service.
+- Config: CACHE_TTL=300.
+
+**Acceptance Criteria**
+- Dashboard giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN PROGRESS,100% template
+CR-1183,Nguyễn Văn An,Squad Growth,2026-03-22,Tối ưu memory usage cho trang danh sách.,READY FOR RELEASE,Không theo template
+CR-1214,Phạm Quốc Dũng,Squad Platform,2026-03-22,,READY FOR RELEASE,Trống
+CR-1220,Vũ Đức Phong,Squad Payment,2026-03-22,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1180,Đinh Văn Khoa,Squad Data,2026-03-23,Tối ưu bundle size cho màn hình chính.,READY FOR RELEASE,Không theo template
+CR-1196,Vũ Đức Phong,Squad Payment,2026-03-23,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",CLOSED,80% template
+CR-1216,Trần Thị Bích,Squad Mobile,2026-03-23,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1150,Hoàng Thị Em,Squad Payment,2026-03-25,,TESTING,Trống
+CR-1195,Trần Thị Bích,Squad Mobile,2026-03-25,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Upgrade dependency.
+- Database changes: Thêm bảng audit_log.
+- Services involved: api-gateway.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1187,Trần Thị Bích,Squad Mobile,2026-03-26,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Product)**
+- Entry point: Lịch sử screen.
+- UI changes: toggle button.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: view_profile.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1208,Phạm Quốc Dũng,Squad Platform,2026-03-26,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1147,Phạm Quốc Dũng,Squad Platform,2026-03-27,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Cài đặt.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1155,Cao Thị Mai,Squad Payment,2026-03-27,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1166,Cao Thị Mai,Squad Payment,2026-03-27,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1167,Trần Thị Bích,Squad Mobile,2026-03-27,,IN REVIEW,Trống
+CR-1174,Phạm Quốc Dũng,Squad Platform,2026-03-27,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Entry point: Cài đặt screen.
+- UI changes: dropdown menu.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1176,Hoàng Thị Em,Squad Payment,2026-03-27,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1194,Phạm Quốc Dũng,Squad Platform,2026-03-27,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",READY FOR RELEASE,100% template
+CR-1222,Ngô Thị Lan,Squad Platform,2026-03-27,,CLOSED,Trống
+CR-1177,Phạm Quốc Dũng,Squad Platform,2026-03-28,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Hồ sơ screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: view_profile.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",CLOSED,100% template
+CR-1201,Hoàng Thị Em,Squad Payment,2026-03-28,,IN PROGRESS,Trống
+CR-1158,Cao Thị Mai,Squad Payment,2026-03-29,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: user-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",IN PROGRESS,80% template
+CR-1161,Đặng Thị Giang,Squad Growth,2026-03-29,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Product)**
+- Entry point: Cài đặt screen.
+- UI changes: badge hiển thị.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: view_profile.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN REVIEW,100% template
+CR-1193,Cao Thị Mai,Squad Payment,2026-03-29,,IN PROGRESS,Trống
+CR-1219,Trịnh Minh Long,Squad Platform,2026-03-29,"Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Acceptance Criteria**
+- Error < 1%.",CLOSED,50% template
+CR-1226,Trịnh Minh Long,Squad Platform,2026-03-29,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",IN REVIEW,50% template
+CR-1165,Phạm Quốc Dũng,Squad Platform,2026-03-30,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+- Cần thêm tính năng export cho service.",CLOSED,50% template
+CR-1218,Lê Minh Châu,Squad Data,2026-03-30,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1153,Lê Minh Châu,Squad Data,2026-03-31,,READY FOR RELEASE,Trống
+CR-1157,Phạm Quốc Dũng,Squad Platform,2026-03-31,Thêm tính năng dark mode.,IN PROGRESS,Không theo template
+CR-1168,Bùi Thanh Hải,Squad Mobile,2026-03-31,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",DONE,100% template
+CR-1186,Trịnh Minh Long,Squad Platform,2026-03-31,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1269,Lê Minh Châu,Squad Data,2026-04-01,Tối ưu bundle size cho màn hình chính.,TESTING,Không theo template
+CR-1251,Phạm Quốc Dũng,Squad Platform,2026-04-02,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1302,Ngô Thị Lan,Squad Platform,2026-04-02,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1264,Ngô Thị Lan,Squad Platform,2026-04-03,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.",TESTING,50% template
+CR-1277,Ngô Thị Lan,Squad Platform,2026-04-04,"Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Acceptance Criteria**
+- Error < 1%.",IN PROGRESS,50% template
+CR-1282,Trịnh Minh Long,Squad Platform,2026-04-04,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+- Cần thêm tính năng export cho service.",IN PROGRESS,50% template
+CR-1232,Phạm Quốc Dũng,Squad Platform,2026-04-05,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: api-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",IN PROGRESS,80% template
+CR-1246,Cao Thị Mai,Squad Payment,2026-04-05,,DONE,Trống
+CR-1250,Hoàng Thị Em,Squad Payment,2026-04-05,"User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Acceptance Criteria**
+- Pass test.",CLOSED,50% template
+CR-1262,Trịnh Minh Long,Squad Platform,2026-04-05,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1263,Vũ Đức Phong,Squad Payment,2026-04-05,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",DONE,80% template
+CR-1266,Đặng Thị Giang,Squad Growth,2026-04-05,,DONE,Trống
+CR-1274,Đặng Thị Giang,Squad Growth,2026-04-05,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+- Cần thêm tính năng export cho service.",DONE,50% template
+CR-1298,Trịnh Minh Long,Squad Platform,2026-04-05,Thêm tính năng push notification.,READY FOR RELEASE,Không theo template
+CR-1307,Cao Thị Mai,Squad Payment,2026-04-05,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Cài đặt.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1238,Hoàng Thị Em,Squad Payment,2026-04-06,Thêm tính năng push notification.,CLOSED,Không theo template
+CR-1290,Hoàng Thị Em,Squad Payment,2026-04-06,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1309,Trịnh Minh Long,Squad Platform,2026-04-06,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Coverage > 80%.",IN PROGRESS,80% template
+CR-1256,Trần Thị Bích,Squad Mobile,2026-04-07,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN PROGRESS,100% template
+CR-1286,Trần Thị Bích,Squad Mobile,2026-04-07,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1312,Bùi Thanh Hải,Squad Mobile,2026-04-07,Refactor module analytics để tách concerns.,READY FOR RELEASE,Không theo template
+CR-1233,Ngô Thị Lan,Squad Platform,2026-04-08,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1253,Nguyễn Văn An,Squad Growth,2026-04-08,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1258,Đinh Văn Khoa,Squad Data,2026-04-08,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1268,Lê Minh Châu,Squad Data,2026-04-08,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1306,Đinh Văn Khoa,Squad Data,2026-04-08,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1311,Nguyễn Văn An,Squad Growth,2026-04-08,Thêm tính năng dark mode.,IN PROGRESS,Không theo template
+CR-1236,Lê Minh Châu,Squad Data,2026-04-09,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.",TESTING,50% template
+CR-1297,Đinh Văn Khoa,Squad Data,2026-04-09,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",TESTING,80% template
+CR-1289,Trần Thị Bích,Squad Mobile,2026-04-10,Thêm tính năng push notification.,CLOSED,Không theo template
+CR-1259,Vũ Đức Phong,Squad Payment,2026-04-11,,IN PROGRESS,Trống
+CR-1279,Lê Minh Châu,Squad Data,2026-04-11,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",DONE,80% template
+CR-1281,Đặng Thị Giang,Squad Growth,2026-04-11,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Pass Staging test.",TESTING,80% template
+CR-1291,Nguyễn Văn An,Squad Growth,2026-04-11,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng retry_log.
+- Services involved: user-service.
+- Config: RETRY_MAX=3.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1296,Đinh Văn Khoa,Squad Data,2026-04-12,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Error rate < 1%.",TESTING,80% template
+CR-1304,Trịnh Minh Long,Squad Platform,2026-04-12,"User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Acceptance Criteria**
+- Error < 1%.",TESTING,50% template
+CR-1230,Bùi Thanh Hải,Squad Mobile,2026-04-13,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+- Cần thêm tính năng filter cho service.",CLOSED,50% template
+CR-1265,Hoàng Thị Em,Squad Payment,2026-04-13,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",TESTING,100% template
+CR-1308,Nguyễn Văn An,Squad Growth,2026-04-13,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: api-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN PROGRESS,80% template
+CR-1252,Bùi Thanh Hải,Squad Mobile,2026-04-14,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Hồ sơ screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: toggle_setting.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN PROGRESS,100% template
+CR-1267,Nguyễn Văn An,Squad Growth,2026-04-14,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Pass Staging test.",TESTING,80% template
+CR-1303,Ngô Thị Lan,Squad Platform,2026-04-14,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: api-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",DONE,80% template
+CR-1245,Đặng Thị Giang,Squad Growth,2026-04-15,Thêm tính năng push notification.,IN REVIEW,Không theo template
+CR-1254,Hoàng Thị Em,Squad Payment,2026-04-15,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1283,Hoàng Thị Em,Squad Payment,2026-04-15,,IN REVIEW,Trống
+CR-1287,Trần Thị Bích,Squad Mobile,2026-04-15,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN PROGRESS,100% template
+CR-1310,Trịnh Minh Long,Squad Platform,2026-04-15,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm dropdown menu.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1249,Bùi Thanh Hải,Squad Mobile,2026-04-16,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1255,Bùi Thanh Hải,Squad Mobile,2026-04-16,Thêm tính năng dark mode.,DONE,Không theo template
+CR-1271,Trịnh Minh Long,Squad Platform,2026-04-16,Thêm tính năng export Excel.,IN PROGRESS,Không theo template
+CR-1292,Trịnh Minh Long,Squad Platform,2026-04-16,Fix bug email validation lỗi trên Safari.,TESTING,Không theo template
+CR-1300,Đặng Thị Giang,Squad Growth,2026-04-16,Update UI theo yêu cầu mới.,CLOSED,Không theo template
+CR-1301,Trần Thị Bích,Squad Mobile,2026-04-16,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+- Cần thêm tính năng export cho service.",READY FOR RELEASE,50% template
+CR-1278,Cao Thị Mai,Squad Payment,2026-04-17,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Upgrade dependency.
+- Database changes: Thêm bảng retry_log.
+- Services involved: api-gateway.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1234,Trần Thị Bích,Squad Mobile,2026-04-18,"Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,50% template
+CR-1239,Hoàng Thị Em,Squad Payment,2026-04-18,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Thanh toán screen.
+- UI changes: toggle button.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Tính năng giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1240,Vũ Đức Phong,Squad Payment,2026-04-18,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1244,Đặng Thị Giang,Squad Growth,2026-04-18,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN PROGRESS,80% template
+CR-1247,Lê Minh Châu,Squad Data,2026-04-18,Refactor module authentication để tách concerns.,IN PROGRESS,Không theo template
+CR-1293,Trần Thị Bích,Squad Mobile,2026-04-18,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Entry point: Cài đặt screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: apply_filter.
+
+**Acceptance Criteria**
+- API giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1294,Đặng Thị Giang,Squad Growth,2026-04-18,Tối ưu API response cho màn hình chính.,DONE,Không theo template
+CR-1261,Trịnh Minh Long,Squad Platform,2026-04-19,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng rate_limit_config.
+- Services involved: notification-service.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- Service giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1235,Đinh Văn Khoa,Squad Data,2026-04-20,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",CLOSED,100% template
+CR-1260,Đinh Văn Khoa,Squad Data,2026-04-20,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: user-service.
+- Config: RETRY_MAX=3.
+
+**Acceptance Criteria**
+- Dashboard giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN REVIEW,100% template
+CR-1275,Đặng Thị Giang,Squad Growth,2026-04-20,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Error rate < 1%.",READY FOR RELEASE,80% template
+CR-1276,Bùi Thanh Hải,Squad Mobile,2026-04-20,Refactor module payment để tách concerns.,DONE,Không theo template
+CR-1229,Cao Thị Mai,Squad Payment,2026-04-21,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1284,Hoàng Thị Em,Squad Payment,2026-04-21,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",READY FOR RELEASE,80% template
+CR-1299,Lê Minh Châu,Squad Data,2026-04-21,Nâng cấp PostgreSQL 15 trên môi trường production.,TESTING,Không theo template
+CR-1237,Trịnh Minh Long,Squad Platform,2026-04-22,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1248,Trịnh Minh Long,Squad Platform,2026-04-22,Update dependency theo yêu cầu mới.,READY FOR RELEASE,Không theo template
+CR-1257,Đinh Văn Khoa,Squad Data,2026-04-22,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Lịch sử screen.
+- UI changes: dropdown menu.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN REVIEW,100% template
+CR-1272,Nguyễn Văn An,Squad Growth,2026-04-22,,IN PROGRESS,Trống
+CR-1228,Phạm Quốc Dũng,Squad Platform,2026-04-23,Update UI theo yêu cầu mới.,READY FOR RELEASE,Không theo template
+CR-1243,Trần Thị Bích,Squad Mobile,2026-04-23,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+- Cần thêm tính năng export cho service.",CLOSED,50% template
+CR-1270,Đinh Văn Khoa,Squad Data,2026-04-23,"API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Acceptance Criteria**
+- Error < 1%.",READY FOR RELEASE,50% template
+CR-1305,Cao Thị Mai,Squad Payment,2026-04-23,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Lịch sử screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: apply_filter.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1231,Trịnh Minh Long,Squad Platform,2026-04-24,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,80% template
+CR-1273,Ngô Thị Lan,Squad Platform,2026-04-24,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1280,Đặng Thị Giang,Squad Growth,2026-04-24,,READY FOR RELEASE,Trống
+CR-1242,Cao Thị Mai,Squad Payment,2026-04-25,,CLOSED,Trống
+CR-1288,Nguyễn Văn An,Squad Growth,2026-04-27,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Error rate < 1%.",DONE,80% template
+CR-1241,Trần Thị Bích,Squad Mobile,2026-04-28,"Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Acceptance Criteria**
+- Pass test.",DONE,50% template
+CR-1295,Đặng Thị Giang,Squad Growth,2026-04-28,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1285,Đinh Văn Khoa,Squad Data,2026-04-29,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Pass Staging test.",READY FOR RELEASE,80% template
+CR-1339,Đinh Văn Khoa,Squad Data,2026-05-01,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN PROGRESS,100% template
+CR-1387,Trịnh Minh Long,Squad Platform,2026-05-01,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- API giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",DONE,100% template
+CR-1399,Ngô Thị Lan,Squad Platform,2026-05-01,"Service notification không có retry mechanism khi push notification thất bại.
+
+**Acceptance Criteria**
+- Pass test.",DONE,50% template
+CR-1332,Vũ Đức Phong,Squad Payment,2026-05-02,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Cài đặt.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1378,Cao Thị Mai,Squad Payment,2026-05-02,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: user-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",READY FOR RELEASE,80% template
+CR-1385,Trịnh Minh Long,Squad Platform,2026-05-02,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",READY FOR RELEASE,100% template
+CR-1392,Đinh Văn Khoa,Squad Data,2026-05-02,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1398,Nguyễn Văn An,Squad Growth,2026-05-02,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN REVIEW,80% template
+CR-1401,Đặng Thị Giang,Squad Growth,2026-05-02,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm toggle button.
+- States: loading, empty, error.
+- Tracking: screen_view: view_profile.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1317,Hoàng Thị Em,Squad Payment,2026-05-03,"API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Acceptance Criteria**
+- Pass test.",CLOSED,50% template
+CR-1327,Vũ Đức Phong,Squad Payment,2026-05-03,,IN REVIEW,Trống
+CR-1407,Ngô Thị Lan,Squad Platform,2026-05-03,"Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Acceptance Criteria**
+- Error < 1%.",IN PROGRESS,50% template
+CR-1330,Đặng Thị Giang,Squad Growth,2026-05-04,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",TESTING,100% template
+CR-1345,Đinh Văn Khoa,Squad Data,2026-05-04,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN REVIEW,80% template
+CR-1364,Hoàng Thị Em,Squad Payment,2026-05-05,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1383,Nguyễn Văn An,Squad Growth,2026-05-05,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1313,Đinh Văn Khoa,Squad Data,2026-05-06,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Lịch sử screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1326,Vũ Đức Phong,Squad Payment,2026-05-06,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1340,Lê Minh Châu,Squad Data,2026-05-06,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm dropdown menu.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1348,Hoàng Thị Em,Squad Payment,2026-05-06,Thêm tính năng export Excel.,READY FOR RELEASE,Không theo template
+CR-1359,Đặng Thị Giang,Squad Growth,2026-05-06,Update design theo yêu cầu mới.,READY FOR RELEASE,Không theo template
+CR-1372,Trịnh Minh Long,Squad Platform,2026-05-06,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",READY FOR RELEASE,80% template
+CR-1380,Bùi Thanh Hải,Squad Mobile,2026-05-06,Nâng cấp PostgreSQL 15 trên môi trường production.,DONE,Không theo template
+CR-1384,Cao Thị Mai,Squad Payment,2026-05-06,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,80% template
+CR-1391,Bùi Thanh Hải,Squad Mobile,2026-05-06,"DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Acceptance Criteria**
+- p95 < 1s.",DONE,50% template
+CR-1333,Phạm Quốc Dũng,Squad Platform,2026-05-07,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Hồ sơ screen.
+- UI changes: badge hiển thị.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1341,Đinh Văn Khoa,Squad Data,2026-05-07,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Thanh toán screen.
+- UI changes: toggle button.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: apply_filter.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1394,Nguyễn Văn An,Squad Growth,2026-05-07,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",READY FOR RELEASE,80% template
+CR-1347,Trần Thị Bích,Squad Mobile,2026-05-08,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Hồ sơ screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: apply_filter.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",READY FOR RELEASE,100% template
+CR-1349,Trịnh Minh Long,Squad Platform,2026-05-08,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng audit_log.
+- Services involved: notification-service.
+- Config: CACHE_TTL=300.
+
+**Acceptance Criteria**
+- Tính năng giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1395,Bùi Thanh Hải,Squad Mobile,2026-05-09,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1404,Đặng Thị Giang,Squad Growth,2026-05-09,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1328,Trịnh Minh Long,Squad Platform,2026-05-10,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1354,Vũ Đức Phong,Squad Payment,2026-05-10,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1355,Trịnh Minh Long,Squad Platform,2026-05-10,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: user-service.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- Tính năng giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN REVIEW,100% template
+CR-1366,Nguyễn Văn An,Squad Growth,2026-05-10,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1316,Cao Thị Mai,Squad Payment,2026-05-11,Thêm tính năng share link.,DONE,Không theo template
+CR-1346,Phạm Quốc Dũng,Squad Platform,2026-05-11,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1389,Nguyễn Văn An,Squad Growth,2026-05-11,,CLOSED,Trống
+CR-1318,Ngô Thị Lan,Squad Platform,2026-05-12,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Coverage > 80%.",TESTING,80% template
+CR-1338,Hoàng Thị Em,Squad Payment,2026-05-12,"DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,50% template
+CR-1381,Trần Thị Bích,Squad Mobile,2026-05-12,"API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Acceptance Criteria**
+- Error < 1%.",TESTING,50% template
+CR-1403,Vũ Đức Phong,Squad Payment,2026-05-12,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Coverage > 80%.",CLOSED,80% template
+CR-1353,Ngô Thị Lan,Squad Platform,2026-05-13,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1369,Bùi Thanh Hải,Squad Mobile,2026-05-13,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+- Cần thêm tính năng notification cho service.",IN REVIEW,50% template
+CR-1386,Hoàng Thị Em,Squad Payment,2026-05-13,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",DONE,100% template
+CR-1352,Trần Thị Bích,Squad Mobile,2026-05-14,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- p95 < 1s.",DONE,80% template
+CR-1397,Cao Thị Mai,Squad Payment,2026-05-14,,TESTING,Trống
+CR-1374,Trần Thị Bích,Squad Mobile,2026-05-15,"User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Acceptance Criteria**
+- p95 < 1s.",TESTING,50% template
+CR-1314,Ngô Thị Lan,Squad Platform,2026-05-16,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN PROGRESS,80% template
+CR-1319,Đinh Văn Khoa,Squad Data,2026-05-16,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",READY FOR RELEASE,100% template
+CR-1365,Cao Thị Mai,Squad Payment,2026-05-16,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard giảm 30% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN REVIEW,100% template
+CR-1393,Lê Minh Châu,Squad Data,2026-05-16,,READY FOR RELEASE,Trống
+CR-1396,Vũ Đức Phong,Squad Payment,2026-05-16,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.",TESTING,50% template
+CR-1405,Đinh Văn Khoa,Squad Data,2026-05-16,"DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Acceptance Criteria**
+- Error < 1%.",DONE,50% template
+CR-1321,Trần Thị Bích,Squad Mobile,2026-05-17,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",DONE,50% template
+CR-1336,Đinh Văn Khoa,Squad Data,2026-05-17,Tối ưu API response cho trang danh sách.,DONE,Không theo template
+CR-1337,Đặng Thị Giang,Squad Growth,2026-05-17,Update design theo yêu cầu mới.,IN PROGRESS,Không theo template
+CR-1388,Hoàng Thị Em,Squad Payment,2026-05-17,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng retry_log.
+- Services involved: api-gateway.
+- Config: CACHE_TTL=300.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1362,Đinh Văn Khoa,Squad Data,2026-05-19,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: user-service.
+
+**Acceptance Criteria**
+- Pass Staging test.",TESTING,80% template
+CR-1370,Đặng Thị Giang,Squad Growth,2026-05-19,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1361,Cao Thị Mai,Squad Payment,2026-05-20,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1324,Nguyễn Văn An,Squad Growth,2026-05-21,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: payment-service.
+- Config: RETRY_MAX=3.
+
+**Acceptance Criteria**
+- API giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",CLOSED,100% template
+CR-1331,Trịnh Minh Long,Squad Platform,2026-05-21,Fix bug màn hình login crash trên Chrome.,TESTING,Không theo template
+CR-1335,Trần Thị Bích,Squad Mobile,2026-05-21,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1373,Cao Thị Mai,Squad Payment,2026-05-21,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Coverage > 80%.",TESTING,80% template
+CR-1375,Bùi Thanh Hải,Squad Mobile,2026-05-21,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1376,Lê Minh Châu,Squad Data,2026-05-21,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",READY FOR RELEASE,100% template
+CR-1379,Bùi Thanh Hải,Squad Mobile,2026-05-21,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- p95 < 1s.",READY FOR RELEASE,80% template
+CR-1323,Hoàng Thị Em,Squad Payment,2026-05-23,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN PROGRESS,80% template
+CR-1344,Cao Thị Mai,Squad Payment,2026-05-23,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",READY FOR RELEASE,100% template
+CR-1315,Cao Thị Mai,Squad Payment,2026-05-24,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,80% template
+CR-1377,Nguyễn Văn An,Squad Growth,2026-05-24,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",CLOSED,100% template
+CR-1400,Cao Thị Mai,Squad Payment,2026-05-24,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Error rate < 1%.",TESTING,80% template
+CR-1367,Đặng Thị Giang,Squad Growth,2026-05-25,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng retry_log.
+- Services involved: api-gateway.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1371,Đinh Văn Khoa,Squad Data,2026-05-25,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm toggle button.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN REVIEW,100% template
+CR-1390,Phạm Quốc Dũng,Squad Platform,2026-05-25,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Product)**
+- Entry point: Lịch sử screen.
+- UI changes: dropdown menu.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN PROGRESS,100% template
+CR-1325,Cao Thị Mai,Squad Payment,2026-05-27,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1357,Trần Thị Bích,Squad Mobile,2026-05-27,Thêm tính năng push notification.,DONE,Không theo template
+CR-1358,Hoàng Thị Em,Squad Payment,2026-05-27,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1360,Nguyễn Văn An,Squad Growth,2026-05-27,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",DONE,100% template
+CR-1368,Trần Thị Bích,Squad Mobile,2026-05-27,Tối ưu memory usage cho trang danh sách.,CLOSED,Không theo template
+CR-1342,Bùi Thanh Hải,Squad Mobile,2026-05-28,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Cài đặt screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: view_profile.
+
+**Acceptance Criteria**
+- API giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN REVIEW,100% template
+CR-1382,Đặng Thị Giang,Squad Growth,2026-05-28,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: payment-service.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1402,Ngô Thị Lan,Squad Platform,2026-05-28,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1320,Cao Thị Mai,Squad Payment,2026-05-29,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Error rate < 1%.",DONE,80% template
+CR-1322,Trần Thị Bích,Squad Mobile,2026-05-29,,IN PROGRESS,Trống
+CR-1334,Hoàng Thị Em,Squad Payment,2026-05-29,Nâng cấp Python 3.11 trên môi trường production.,IN PROGRESS,Không theo template
+CR-1350,Nguyễn Văn An,Squad Growth,2026-05-29,Nâng cấp Redis 7 trên môi trường production.,IN REVIEW,Không theo template
+CR-1351,Đinh Văn Khoa,Squad Data,2026-05-29,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: api-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN REVIEW,80% template
+CR-1356,Phạm Quốc Dũng,Squad Platform,2026-05-29,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+- Cần thêm tính năng filter cho service.",TESTING,50% template
+CR-1363,Bùi Thanh Hải,Squad Mobile,2026-05-29,Update react-native theo yêu cầu mới.,TESTING,Không theo template
+CR-1406,Trịnh Minh Long,Squad Platform,2026-05-29,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",CLOSED,100% template
+CR-1329,Trần Thị Bích,Squad Mobile,2026-05-31,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng audit_log.
+- Services involved: payment-service.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1343,Cao Thị Mai,Squad Payment,2026-05-31,Refactor module notification để tách concerns.,TESTING,Không theo template
+CR-1446,Bùi Thanh Hải,Squad Mobile,2026-06-01,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: user-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,80% template
+CR-1496,Ngô Thị Lan,Squad Platform,2026-06-01,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN PROGRESS,80% template
+CR-1420,Nguyễn Văn An,Squad Growth,2026-06-02,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: api-gateway.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- Service giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN PROGRESS,100% template
+CR-1483,Bùi Thanh Hải,Squad Mobile,2026-06-02,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Coverage > 80%.",DONE,80% template
+CR-1426,Bùi Thanh Hải,Squad Mobile,2026-06-03,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Lịch sử.
+- UI changes: Thêm dropdown menu.
+- States: loading, empty, error.
+- Tracking: screen_view: cta_payment.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1456,Lê Minh Châu,Squad Data,2026-06-03,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1474,Bùi Thanh Hải,Squad Mobile,2026-06-03,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Thêm retry mechanism.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1497,Nguyễn Văn An,Squad Growth,2026-06-03,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1419,Lê Minh Châu,Squad Data,2026-06-05,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Coverage > 80%.",READY FOR RELEASE,80% template
+CR-1464,Vũ Đức Phong,Squad Payment,2026-06-05,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1488,Đặng Thị Giang,Squad Growth,2026-06-05,"Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Acceptance Criteria**
+- Error < 1%.",IN PROGRESS,50% template
+CR-1418,Đặng Thị Giang,Squad Growth,2026-06-06,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN PROGRESS,100% template
+CR-1447,Nguyễn Văn An,Squad Growth,2026-06-06,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN REVIEW,100% template
+CR-1454,Đinh Văn Khoa,Squad Data,2026-06-06,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng retry_log.
+- Services involved: payment-service.
+- Config: RETRY_MAX=3.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1499,Bùi Thanh Hải,Squad Mobile,2026-06-06,,IN PROGRESS,Trống
+CR-1437,Vũ Đức Phong,Squad Payment,2026-06-07,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",DONE,100% template
+CR-1469,Ngô Thị Lan,Squad Platform,2026-06-07,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- p95 < 1s.",IN PROGRESS,80% template
+CR-1445,Hoàng Thị Em,Squad Payment,2026-06-08,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1448,Đặng Thị Giang,Squad Growth,2026-06-08,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template
+CR-1472,Lê Minh Châu,Squad Data,2026-06-08,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+- Cần thêm tính năng retry cho service.",IN REVIEW,50% template
+CR-1477,Lê Minh Châu,Squad Data,2026-06-08,"**Context**
+Redis cache không có metrics, 2 incident xảy ra trong tháng qua.
+
+**Requirement (Product)**
+- Entry point: Hồ sơ screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN REVIEW,100% template
+CR-1479,Cao Thị Mai,Squad Payment,2026-06-08,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng rate_limit_config.
+- Services involved: payment-service.
+- Config: CACHE_TTL=300.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1495,Cao Thị Mai,Squad Payment,2026-06-08,Refactor module payment để tách concerns.,IN PROGRESS,Không theo template
+CR-1415,Trịnh Minh Long,Squad Platform,2026-06-09,Fix bug pagination không đúng trên iOS 16.,IN PROGRESS,Không theo template
+CR-1455,Nguyễn Văn An,Squad Growth,2026-06-09,"App chưa hỗ trợ dark mode theo system preference.
+
+**Acceptance Criteria**
+- p95 < 1s.",READY FOR RELEASE,50% template
+CR-1468,Vũ Đức Phong,Squad Payment,2026-06-09,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: user-service.
+- Config: CACHE_TTL=300.
+
+**Acceptance Criteria**
+- Service hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1478,Đinh Văn Khoa,Squad Data,2026-06-09,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Back-end)**
+- What we change: Rate limiting.
+- Services: user-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",IN REVIEW,80% template
+CR-1485,Bùi Thanh Hải,Squad Mobile,2026-06-09,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1422,Phạm Quốc Dũng,Squad Platform,2026-06-10,,IN REVIEW,Trống
+CR-1431,Vũ Đức Phong,Squad Payment,2026-06-10,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1409,Cao Thị Mai,Squad Payment,2026-06-11,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: user-service.
+- Config: RETRY_MAX=3.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN PROGRESS,100% template
+CR-1428,Cao Thị Mai,Squad Payment,2026-06-11,"DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Acceptance Criteria**
+- Error < 1%.",DONE,50% template
+CR-1493,Trần Thị Bích,Squad Mobile,2026-06-11,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Date picker.
+
+**Acceptance Criteria**
+- Error rate < 1%.",CLOSED,80% template
+CR-1486,Phạm Quốc Dũng,Squad Platform,2026-06-12,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: payment-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN PROGRESS,100% template
+CR-1444,Đinh Văn Khoa,Squad Data,2026-06-13,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1451,Lê Minh Châu,Squad Data,2026-06-13,"Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Acceptance Criteria**
+- Error < 1%.",DONE,50% template
+CR-1489,Ngô Thị Lan,Squad Platform,2026-06-13,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",READY FOR RELEASE,100% template
+CR-1461,Bùi Thanh Hải,Squad Mobile,2026-06-14,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",DONE,100% template
+CR-1442,Đặng Thị Giang,Squad Growth,2026-06-15,Thêm tính năng dark mode.,IN REVIEW,Không theo template
+CR-1490,Vũ Đức Phong,Squad Payment,2026-06-15,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: api-gateway.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1492,Lê Minh Châu,Squad Data,2026-06-15,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: toggle_setting.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1500,Đinh Văn Khoa,Squad Data,2026-06-15,Tối ưu memory usage cho checkout flow.,TESTING,Không theo template
+CR-1481,Phạm Quốc Dũng,Squad Platform,2026-06-16,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Error rate < 1%.",CLOSED,80% template
+CR-1414,Ngô Thị Lan,Squad Platform,2026-06-17,Update dependency theo yêu cầu mới.,TESTING,Không theo template
+CR-1423,Đinh Văn Khoa,Squad Data,2026-06-17,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1463,Đinh Văn Khoa,Squad Data,2026-06-17,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",TESTING,100% template
+CR-1467,Trần Thị Bích,Squad Mobile,2026-06-17,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng cache_metrics.
+- Services involved: notification-service.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1473,Hoàng Thị Em,Squad Payment,2026-06-17,,DONE,Trống
+CR-1484,Cao Thị Mai,Squad Payment,2026-06-17,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Thêm retry mechanism.
+- Database changes: Thêm bảng rate_limit_config.
+- Services involved: user-service.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- API giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN REVIEW,100% template
+CR-1417,Phạm Quốc Dũng,Squad Platform,2026-06-18,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Thanh toán screen.
+- UI changes: badge hiển thị.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Service giảm 50% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",TESTING,100% template
+CR-1430,Vũ Đức Phong,Squad Payment,2026-06-18,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN PROGRESS,100% template
+CR-1440,Cao Thị Mai,Squad Payment,2026-06-19,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1450,Bùi Thanh Hải,Squad Mobile,2026-06-19,"**Context**
+Service notification không có retry mechanism khi push notification thất bại.
+
+**Requirement (Product)**
+- Entry point: Dashboard.
+- UI: Hiển thị badge.
+
+**Acceptance Criteria**
+- Pass Staging test.",IN PROGRESS,80% template
+CR-1434,Đinh Văn Khoa,Squad Data,2026-06-20,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",CLOSED,100% template
+CR-1438,Lê Minh Châu,Squad Data,2026-06-20,"**Context**
+Màn hình lịch sử giao dịch không có bộ lọc theo ngày.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",TESTING,80% template
+CR-1453,Phạm Quốc Dũng,Squad Platform,2026-06-20,Refactor module payment để tách concerns.,IN REVIEW,Không theo template
+CR-1459,Đinh Văn Khoa,Squad Data,2026-06-20,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: payment-service.
+
+**Acceptance Criteria**
+- p95 < 1s.",IN PROGRESS,80% template
+CR-1462,Lê Minh Châu,Squad Data,2026-06-20,"User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Acceptance Criteria**
+- p95 < 1s.",DONE,50% template
+CR-1491,Trịnh Minh Long,Squad Platform,2026-06-20,Refactor module analytics để tách concerns.,IN PROGRESS,Không theo template
+CR-1449,Ngô Thị Lan,Squad Platform,2026-06-21,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Back-end)**
+- What we change: Retry logic.
+- Services: user-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",IN PROGRESS,80% template
+CR-1439,Đinh Văn Khoa,Squad Data,2026-06-22,,TESTING,Trống
+CR-1457,Cao Thị Mai,Squad Payment,2026-06-22,Fix bug timezone hiển thị sai trên Safari.,IN REVIEW,Không theo template
+CR-1470,Nguyễn Văn An,Squad Growth,2026-06-22,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- p95 < 1s.",DONE,80% template
+CR-1475,Đặng Thị Giang,Squad Growth,2026-06-22,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",CLOSED,100% template
+CR-1480,Trịnh Minh Long,Squad Platform,2026-06-22,"**Context**
+Feature flag AI đang bật 100% user nhưng cần rollout dần.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Dashboard hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN PROGRESS,100% template
+CR-1498,Ngô Thị Lan,Squad Platform,2026-06-22,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",READY FOR RELEASE,50% template
+CR-1408,Cao Thị Mai,Squad Payment,2026-06-24,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Implement rate limiting.
+- Database changes: Thêm bảng rate_limit_config.
+- Services involved: payment-service.
+- Config: LOG_LEVEL=INFO.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",IN REVIEW,100% template
+CR-1416,Trịnh Minh Long,Squad Platform,2026-06-24,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Thanh toán screen.
+- UI changes: toggle button.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: apply_filter.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1443,Lê Minh Châu,Squad Data,2026-06-24,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tính năng hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",IN PROGRESS,100% template
+CR-1494,Phạm Quốc Dũng,Squad Platform,2026-06-24,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",IN REVIEW,100% template
+CR-1411,Cao Thị Mai,Squad Payment,2026-06-25,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Implement rate limiting.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",READY FOR RELEASE,100% template
+CR-1465,Hoàng Thị Em,Squad Payment,2026-06-25,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Tối ưu query index.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1471,Lê Minh Châu,Squad Data,2026-06-25,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: notification-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1482,Trần Thị Bích,Squad Mobile,2026-06-25,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end)**
+- What we change: Optimize query.
+- Services: user-service.
+
+**Acceptance Criteria**
+- Coverage > 80%.",CLOSED,80% template
+CR-1421,Vũ Đức Phong,Squad Payment,2026-06-26,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Entry point: Cài đặt screen.
+- UI changes: date range picker.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: view_profile.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",TESTING,100% template
+CR-1441,Trần Thị Bích,Squad Mobile,2026-06-26,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Service giảm 60% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",CLOSED,100% template
+CR-1476,Trịnh Minh Long,Squad Platform,2026-06-26,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 20%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1410,Hoàng Thị Em,Squad Payment,2026-06-27,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Back-end & Front-end Technical)**
+- What we change: Tối ưu query index.
+- Database changes: Thêm bảng rate_limit_config.
+- Services involved: notification-service.
+- Config: RATE_LIMIT=100.
+
+**Acceptance Criteria**
+- Dashboard giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",IN PROGRESS,100% template
+CR-1425,Bùi Thanh Hải,Squad Mobile,2026-06-27,"**Context**
+DB MySQL 5.7 sắp hết support, cần migrate lên 8.0.
+
+**Requirement (Product)**
+- Entry point: Settings.
+- UI: Update form.",TESTING,50% template
+CR-1429,Đinh Văn Khoa,Squad Data,2026-06-27,"**Context**
+Hệ thống không hỗ trợ thanh toán MoMo, tỷ lệ drop-off 18%.
+
+**Requirement (Back-end & Front-end Technical)**
+- Services: user-service.
+- What we change: Upgrade dependency.
+- Performance target: p95 < 500ms.
+
+**Acceptance Criteria**
+- Tính năng giảm 70% sau deploy.
+- Grafana dashboard hiển thị đúng.
+- Rollback plan đã test.",READY FOR RELEASE,100% template
+CR-1432,Hoàng Thị Em,Squad Payment,2026-06-27,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Entry point: Thanh toán screen.
+- UI changes: dropdown menu.
+- Edge cases: timeout, empty state.
+- Tracking: cta_click: cta_payment.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",TESTING,100% template
+CR-1460,Bùi Thanh Hải,Squad Mobile,2026-06-27,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",READY FOR RELEASE,100% template
+CR-1412,Bùi Thanh Hải,Squad Mobile,2026-06-28,"**Context**
+API công khai không có rate limiting, tuần trước xảy ra incident.
+
+**Requirement (Back-end)**
+- What we change: Add index.
+- Services: api-service.
+
+**Acceptance Criteria**
+- Error rate < 1%.",READY FOR RELEASE,80% template
+CR-1435,Trịnh Minh Long,Squad Platform,2026-06-28,"**Context**
+Màn hình profile không hiển thị loyalty points của user.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Thanh toán.
+- UI changes: Thêm dropdown menu.
+- States: loading, empty, error.
+- Tracking: screen_view: view_profile.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",READY FOR RELEASE,100% template
+CR-1436,Đinh Văn Khoa,Squad Data,2026-06-28,"**Context**
+User không nhận được email xác nhận sau khi đặt hàng thành công.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- API hoạt động đúng trên Staging.
+- Alert nếu error rate > 5%.
+- Không ảnh hưởng feature khác.",TESTING,100% template
+CR-1458,Bùi Thanh Hải,Squad Mobile,2026-06-28,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Product)**
+- Entry point: Profile.
+- UI: Thêm button.
+
+**Acceptance Criteria**
+- p95 < 1s.",CLOSED,80% template
+CR-1466,Nguyễn Văn An,Squad Growth,2026-06-28,"**Context**
+Trang danh sách sản phẩm load chậm > 3s do query chưa tối ưu.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 50%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1487,Hoàng Thị Em,Squad Payment,2026-06-28,"**Context**
+Log Kafka đang lưu toàn bộ message content, dung lượng tăng 3x.
+
+**Requirement (Product)**
+- Entry point: Menu.
+- UI: Thêm button.",CLOSED,50% template
+CR-1427,Cao Thị Mai,Squad Payment,2026-06-29,"**Context**
+User không thể bật 2FA bằng OTP SMS trên màn hình Settings.
+
+**Requirement (Product)**
+- Entry point: Checkout.
+- UI: Cập nhật form.
+
+**Acceptance Criteria**
+- Pass Staging test.",CLOSED,80% template
+CR-1433,Trịnh Minh Long,Squad Platform,2026-06-29,"**Context**
+App chưa hỗ trợ dark mode theo system preference.
+
+**Requirement (Configuration)**
+- LaunchDarkly: đổi rollout 10%.
+- Không cần restart service.
+- Rollback: giảm về 0% nếu error rate > 5%.
+
+**Acceptance Criteria**
+- p95 < 1s trên môi trường Production.
+- Hoạt động đúng iOS 15+, Android 10+.
+- Unit test coverage > 80%.",DONE,100% template
+CR-1452,Bùi Thanh Hải,Squad Mobile,2026-06-29,Update design theo yêu cầu mới.,IN REVIEW,Không theo template
+CR-1413,Phạm Quốc Dũng,Squad Platform,2026-06-30,"**Context**
+Webhook payment bị duplicate event, gây charge 2 lần.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm date range picker.
+- States: loading, empty, error.
+- Tracking: screen_view: view_profile.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",CLOSED,100% template
+CR-1424,Đinh Văn Khoa,Squad Data,2026-06-30,"**Context**
+Log4j 2.14 có CVE-2021-44228, cần nâng cấp khẩn.
+
+**Requirement (Product)**
+- Affected users: User đã đăng nhập.
+- Entry point: Menu > Hồ sơ.
+- UI changes: Thêm badge hiển thị.
+- States: loading, empty, error.
+- Tracking: screen_view: apply_filter.
+
+**Acceptance Criteria**
+- Tất cả test case pass trên Staging.
+- OWASP scan không có critical issue.
+- Deploy không downtime.",DONE,100% template

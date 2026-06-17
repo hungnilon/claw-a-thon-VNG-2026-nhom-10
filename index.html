@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Story Compliance Report</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --chat-w: clamp(340px, 33vw, 460px); }   /* bề rộng vùng chat ~1/3 màn hình */
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; color: #1a1a2e; min-height: 100vh; transition: padding-right .2s ease; }
+    body.chat-open { padding-right: var(--chat-w); }   /* chỉ dời dashboard khi chat mở */
+
+    header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 20px 32px; display: flex; align-items: center; gap: 14px; }
+    header .icon { font-size: 26px; }
+    header h1 { font-size: 18px; font-weight: 700; }
+    header p  { font-size: 12px; color: #8892a4; margin-top: 2px; }
+
+    .toolbar { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 14px 32px; display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; }
+    .filter-group { display: flex; flex-direction: column; gap: 5px; }
+    .filter-group label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; }
+    .filter-group select { border: 1.5px solid #d1d5db; border-radius: 8px; padding: 8px 32px 8px 12px; font-size: 13px; outline: none; background: #fafafa url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center; appearance: none; cursor: pointer; min-width: 180px; }
+    .filter-group select:focus { outline: none; border-color: #6366f1; }
+    .upload-group { display: flex; flex-direction: column; gap: 5px; }
+    .upload-group label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; }
+    .upload-row { display: flex; gap: 8px; align-items: center; }
+    #fileInput { font-size: 12px; color: #6b7280; }
+    .data-badge { font-size: 11px; padding: 4px 10px; border-radius: 20px; background: #dcfce7; color: #15803d; font-weight: 700; display: none; }
+    .data-badge.show { display: inline-block; }
+
+    .btn { padding: 8px 16px; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; }
+    .btn-primary { background: #6366f1; color: #fff; }
+    .btn-primary:hover { background: #4f46e5; }
+    .btn-sm { padding: 5px 12px; font-size: 12px; border-radius: 6px; }
+    .btn-ghost { background: #f3f4f6; color: #374151; }
+    .btn-ghost:hover { background: #e5e7eb; }
+    .btn-update { background: #6366f1; color: #fff; }
+    .btn-update:hover { background: #4f46e5; }
+    .btn-update.done { background: #22c55e; cursor: default; }
+
+    .main { padding: 24px 32px; max-width: 1400px; margin: 0 auto; }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
+    .kpi-card { background: #fff; border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 6px rgba(0,0,0,.07); border-left: 4px solid #e5e7eb; }
+    .kpi-card.total  { border-left-color: #6366f1; }
+    .kpi-card.full   { border-left-color: #22c55e; }
+    .kpi-card.mostly { border-left-color: #f59e0b; }
+    .kpi-card.needs  { border-left-color: #ef4444; }
+    .kpi-label { font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: .4px; }
+    .kpi-value { font-size: 34px; font-weight: 800; line-height: 1.1; margin-top: 4px; }
+    .kpi-card.total  .kpi-value { color: #6366f1; }
+    .kpi-card.full   .kpi-value { color: #22c55e; }
+    .kpi-card.mostly .kpi-value { color: #f59e0b; }
+    .kpi-card.needs  .kpi-value { color: #ef4444; }
+    .kpi-pct { font-size: 12px; color: #9ca3af; margin-top: 2px; }
+
+    .chart-row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
+    @media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } }
+    .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 6px rgba(0,0,0,.07); margin-bottom: 16px; }
+    .card h2 { font-size: 14px; font-weight: 700; color: #374151; margin-bottom: 14px; }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th { background: #f9fafb; text-align: left; padding: 10px 14px; font-weight: 700; font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: .4px; border-bottom: 2px solid #f3f4f6; }
+    tbody tr { transition: background .1s; }
+    tbody tr:hover { background: #f9fafb; }
+    tbody td { padding: 10px 14px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+
+    .prog-wrap { display: flex; align-items: center; gap: 8px; }
+    .prog-bar-bg { flex: 1; height: 6px; background: #f3f4f6; border-radius: 99px; overflow: hidden; min-width: 80px; }
+    .prog-bar { height: 100%; border-radius: 99px; }
+    .prog-label { font-size: 12px; font-weight: 700; min-width: 38px; text-align: right; }
+
+    .count-link { cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; transition: opacity .15s; }
+    .count-link:hover { opacity: .75; }
+    .count-link.full   { background: #dcfce7; color: #15803d; }
+    .count-link.mostly { background: #fef3c7; color: #b45309; }
+    .count-link.needs  { background: #fee2e2; color: #b91c1c; }
+    .count-link.zero   { background: #f3f4f6; color: #9ca3af; cursor: default; }
+
+    .squad-row { cursor: pointer; }
+    .squad-row:hover td:first-child { color: #6366f1; text-decoration: underline; }
+    .squad-row td:first-child { font-weight: 600; }
+
+    #personPanel, #ticketPanel { display: none; }
+    .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .panel-header h2 { margin-bottom: 0; }
+
+    .desc-box { width: 100%; min-width: 300px; border: 1.5px solid #e5e7eb; border-radius: 8px; padding: 10px 12px; font-size: 13px; font-family: inherit; resize: vertical; min-height: 140px; line-height: 1.6; transition: border-color .15s; background: #fafafa; }
+    .desc-box:focus { outline: none; border-color: #6366f1; background: #fff; }
+    .desc-box:read-only { background: #f9fafb; color: #6b7280; }
+
+    .status-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; background: #f3f4f6; color: #374151; }
+    .status-badge.done { background: #dcfce7; color: #15803d; }
+    .status-badge.review { background: #dbeafe; color: #1d4ed8; }
+    .status-badge.testing { background: #ede9fe; color: #6d28d9; }
+    .status-badge.progress { background: #fef3c7; color: #b45309; }
+
+    .empty { text-align: center; padding: 60px; color: #9ca3af; font-size: 15px; }
+
+    /* Landing (trang chủ trước khi AI chấm) */
+    .landing { background: #fff; border-radius: 16px; padding: 52px 36px; text-align: center; box-shadow: 0 1px 8px rgba(0,0,0,.07); max-width: 700px; margin: 48px auto; }
+    .landing-icon { font-size: 48px; }
+    .landing h2 { font-size: 22px; font-weight: 800; margin: 16px 0 10px; color: #1a1a2e; }
+    .landing p { color: #6b7280; font-size: 14px; line-height: 1.7; max-width: 540px; margin: 0 auto; }
+    .landing-actions { display: flex; gap: 12px; justify-content: center; margin: 26px 0 6px; flex-wrap: wrap; }
+    .landing-actions .btn { padding: 13px 24px; font-size: 14px; }
+    .landing-hint { font-size: 12px; color: #9ca3af; margin-top: 12px; }
+    .landing-status { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 600; color: #4338ca; background: #eef2ff; border: 1px solid #e0e7ff; border-radius: 20px; padding: 6px 16px; }
+
+    header { position: relative; }
+    .tool-toggle { margin-left: auto; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; }
+    .tool-toggle:hover { background: rgba(255,255,255,.22); }
+    .flow-arrow { color: #9ca3af; font-weight: 700; }
+    canvas { max-height: 280px; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 24px; right: calc(var(--chat-w) + 24px); background: #1a1a2e; color: #fff; padding: 12px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; z-index: 9500; opacity: 0; transition: opacity .3s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+
+    /* ── Chat widget ─────────────────────────────────────────── */
+    #chatBtn {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #6366f1; color: #fff; border: none;
+      font-size: 24px; cursor: pointer; box-shadow: 0 4px 16px rgba(99,102,241,.45);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9000; transition: background .15s, transform .15s;
+    }
+    #chatBtn:hover { background: #4f46e5; transform: scale(1.07); }
+    body.chat-open #chatBtn { display: none; }   /* ẩn nút khi panel đang mở */
+
+    #chatPanel {
+      position: fixed; top: 0; right: 0;
+      width: var(--chat-w); height: 100vh;
+      background: #fff; border-left: 1px solid #e5e7eb;
+      box-shadow: -4px 0 24px rgba(0,0,0,.10);
+      display: none; flex-direction: column;
+      z-index: 9000; overflow: hidden;
+    }
+    #chatPanel.open { display: flex; }
+
+    /* Màn hình hẹp: chat mở phủ full chiều ngang, không dời dashboard */
+    @media (max-width: 820px) {
+      #chatPanel { width: 100%; }
+      body.chat-open { padding-right: 0; }
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #fff; padding: 14px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .chat-header-title { font-size: 14px; font-weight: 700; }
+    .chat-header-sub { font-size: 11px; color: #8892a4; margin-top: 2px; }
+    .chat-close { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; opacity: .7; }
+    .chat-close:hover { opacity: 1; }
+
+    .chat-messages { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .chat-msg { max-width: 85%; padding: 10px 13px; border-radius: 12px; font-size: 13px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+    .chat-msg.user { background: #6366f1; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .chat-msg.bot  { background: #f3f4f6; color: #1a1a2e; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .chat-msg.bot strong { font-weight: 700; }
+    .chat-msg.typing { color: #9ca3af; font-style: italic; }
+
+    .chat-input-row { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid #f0f0f0; background: #fff; }
+    .chat-input { flex: 1; border: 1.5px solid #e5e7eb; border-radius: 8px; padding: 8px 12px; font-size: 13px; font-family: inherit; resize: none; outline: none; max-height: 80px; }
+    .chat-input:focus { border-color: #6366f1; }
+    .chat-send { background: #6366f1; color: #fff; border: none; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .chat-send:hover { background: #4f46e5; }
+    .chat-send:disabled { background: #c7d2fe; cursor: default; }
+
+    .chat-suggestions { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 12px 10px; }
+    .chat-sug { background: #ede9fe; color: #5b21b6; border: none; border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 600; cursor: pointer; transition: background .15s; }
+    .chat-sug:hover { background: #ddd6fe; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="icon">📊</div>
+  <div>
+    <h1>User Story Compliance Report</h1>
+    <p>Template compliance analysis based on Change Request Template</p>
+  </div>
+  <button id="toolToggle" class="tool-toggle" onclick="toggleToolbar()">⚙️ Dữ liệu &amp; bộ lọc ▾</button>
+</header>
+
+<div class="toolbar" id="toolbar" style="display:none;">
+  <div class="upload-group">
+    <label>📂 Nguồn dữ liệu — tải lên rồi phân tích</label>
+    <div class="upload-row">
+      <input type="file" id="fileInput" accept=".csv" onchange="uploadCSV()" />
+      <span class="data-badge" id="dataBadge">✓ Data loaded</span>
+      <span class="flow-arrow">→</span>
+      <button class="btn btn-primary btn-sm" id="analyzeBtn" onclick="analyzeAI()">🤖 Phân tích bằng AI</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <label>📅 Report Month</label>
+    <select id="monthFilter" onchange="applyFilters()">
+      <option value="all">All Months</option>
+      <option value="2026-01">January 2026</option>
+      <option value="2026-02">February 2026</option>
+      <option value="2026-03">March 2026</option>
+      <option value="2026-04">April 2026</option>
+      <option value="2026-05">May 2026</option>
+      <option value="2026-06">June 2026</option>
+      <option value="2026-07">July 2026</option>
+      <option value="2026-08">August 2026</option>
+      <option value="2026-09">September 2026</option>
+      <option value="2026-10">October 2026</option>
+      <option value="2026-11">November 2026</option>
+      <option value="2026-12">December 2026</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>👥 Squad</label>
+    <select id="squadFilter" onchange="applyFilters()">
+      <option value="all">All Squads</option>
+    </select>
+  </div>
+</div>
+
+<div class="main" id="main">
+  <div class="landing">
+    <div class="landing-icon">🤖📋</div>
+    <h2>Trợ lý báo cáo tuân thủ User Story</h2>
+    <p>Agent dùng AI chấm mức độ tuân thủ <strong>Change Request Template</strong> của từng ticket
+       (Context · Requirement · Acceptance Criteria), tổng hợp thành báo cáo trực quan, kèm trợ lý PM hỏi đáp.</p>
+    <p class="landing-status" id="landingStatus">📦 Đang tải thông tin dữ liệu…</p>
+    <div class="landing-actions">
+      <button class="btn btn-primary" onclick="analyzeAI()">🤖 Phân tích bằng AI</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('fileInput').click()">📂 Tải lên CSV khác</button>
+    </div>
+    <p class="landing-hint">Bấm “Phân tích bằng AI” để AI chấm bộ dữ liệu hiện có rồi hiện báo cáo.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Nút mở Trợ lý PM (mặc định màn hình 100% report) -->
+<button id="chatBtn" onclick="toggleChat()" title="Mở Trợ lý PM">💬</button>
+
+<!-- Chat panel: bấm nút mới mở, chiếm 1/3 phải màn hình -->
+<div id="chatPanel">
+  <div class="chat-header">
+    <div>
+      <div class="chat-header-title">🤝 Trợ lý PM</div>
+      <div class="chat-header-sub">Hỗ trợ viết ticket & xem số liệu report</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" title="Đóng">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">Nếu cần thêm thông tin chi tiết gì về report này, hãy hỏi thêm bên dưới nhé 👇</div>
+  </div>
+  <div class="chat-suggestions" id="chatSugs">
+    <button class="chat-sug" onclick="sendSug('Mục Context nên viết gì cho đủ?')">Viết mục Context</button>
+    <button class="chat-sug" onclick="sendSug('Em nên chọn loại Requirement nào trong 3 loại?')">Chọn loại Requirement</button>
+    <button class="chat-sug" onclick="sendSug('User nào đang có nhiều ticket chưa tuân thủ nhất?')">Ai nhiều ticket chưa đạt?</button>
+    <button class="chat-sug" onclick="sendSug('Chị hướng dẫn em viết description từng bước nhé')">Hướng dẫn từng bước</button>
+  </div>
+  <div class="chat-input-row">
+    <textarea class="chat-input" id="chatInput" placeholder="Nhập câu hỏi cho chị PM..." rows="1"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
+    <button class="chat-send" id="chatSendBtn" onclick="sendChat()">Gửi</button>
+  </div>
+</div>
+
+<script>
+// ── Categories ───────────────────────────────────────────────────
+const CATS = {
+  full:   { label: 'Fully Compliant (100%)',    color: '#22c55e' },
+  mostly: { label: 'Mostly Compliant (75-99%)', color: '#f59e0b' },
+  needs:  { label: 'Needs Improvement (<75%)',  color: '#ef4444' },
+};
+const ORDER = ['full','mostly','needs'];
+
+function mapCat(raw) {
+  if (!raw || !raw.trim()) return 'needs';
+  if (raw.trim() === '100% template') return 'full';
+  if (raw.trim() === '80% template')  return 'mostly';
+  return 'needs';
+}
+function pct(n, t) { return t ? Math.round(n / t * 100) : 0; }
+function escH(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function statusCls(s) {
+  if (!s) return '';
+  const l = s.toLowerCase();
+  if (l.includes('done') || l.includes('closed') || l.includes('release')) return 'done';
+  if (l.includes('review'))  return 'review';
+  if (l.includes('testing')) return 'testing';
+  if (l.includes('progress')) return 'progress';
+  return '';
+}
+function showToast(msg, ok=true) {
+  const t = document.getElementById('toast');
+  t.textContent = (ok?'✅ ':'⚠️ ') + msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── CSV parser ───────────────────────────────────────────────────
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+  let i = 0; const len = lines.length;
+  const readRow = () => {
+    const f = []; let fld='', inQ=false;
+    while (i < len) {
+      const c = lines[i++];
+      if (c==='"') { if (inQ&&lines[i]==='"') { fld+='"'; i++; } else inQ=!inQ; continue; }
+      if (c===','&&!inQ) { f.push(fld); fld=''; continue; }
+      if (c==='\n'&&!inQ) break;
+      fld+=c;
+    }
+    f.push(fld); return f;
+  };
+  const hdr = readRow().map(h=>h.replace(/^﻿/,'').trim());
+  const rows = [];
+  while (i < len) {
+    const vals = readRow();
+    if (vals.length < 2) continue;
+    const obj = {}; hdr.forEach((h,idx)=>obj[h]=(vals[idx]||'').trim());
+    rows.push(obj);
+  }
+  return rows;
+}
+
+// ── State ────────────────────────────────────────────────────────
+let allData = [], charts = [];
+let _currentSquad = null; // track which squad's person panel is open
+
+function destroyCharts() { charts.forEach(c=>c.destroy()); charts=[]; }
+function countCats(data) {
+  const c={full:0,mostly:0,needs:0};
+  data.forEach(r=>c[mapCat(r['Template Category'])]++);
+  return c;
+}
+
+// ── Upload ───────────────────────────────────────────────────────
+async function uploadCSV() {
+  const fileEl = document.getElementById('fileInput');
+  const file = fileEl.files[0];
+  if (!file) { showToast('Please select a CSV file first', false); return; }
+  const form = new FormData();
+  form.append('file', file);
+  try {
+    const res = await fetch('/api/upload', { method:'POST', body:form });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error||'Upload failed');
+    showToast(`Uploaded ${json.rows} rows successfully`);
+    await loadFromServer();
+  } catch {
+    const reader = new FileReader();
+    reader.onload = ev => buildUI(parseCSV(ev.target.result));
+    reader.readAsText(file, 'utf-8');
+    showToast('Loaded locally (server unreachable)', false);
+  }
+}
+
+async function loadFromServer() {
+  try {
+    const res = await fetch('/api/data');
+    const json = await res.json();
+    if (json.exists && json.rows.length > 0) {
+      const badge = document.getElementById('dataBadge');
+      badge.classList.add('show');
+      badge.textContent = `✓ ${json.rows.length} rows loaded`;
+      buildUI(json.rows);
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+// ── AI phân tích compliance ──────────────────────────────────────
+async function analyzeAI() {
+  const btn = document.getElementById('analyzeBtn');
+  const old = btn.textContent;
+  btn.disabled = true; btn.textContent = '⏳ Đang phân tích...';
+  showToast('AI đang chấm compliance, có thể mất một lúc...');
+  try {
+    const res = await fetch('/api/analyze', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({})       // thêm {"limit": 50} nếu muốn chấm nhanh một phần
+    });
+    const d = await res.json();
+    if (!res.ok) { showToast(d.error || 'Lỗi phân tích', false); }
+    else {
+      showToast(`Đã chấm ${d.analyzed}/${d.total} ticket bằng ${d.model}`);
+      await loadFromServer();        // tải lại data đã AI-chấm + vẽ lại dashboard
+    }
+  } catch (e) { showToast('Lỗi: ' + e, false); }
+  btn.disabled = false; btn.textContent = old;
+}
+
+// ── Update ticket ────────────────────────────────────────────────
+async function updateTicket(ticketId) {
+  const boxEl = document.getElementById('desc-' + ticketId);
+  const btnEl = document.getElementById('btn-' + ticketId);
+  if (!boxEl || !btnEl) return;
+  const newDesc = boxEl.value.trim();
+
+  const row = allData.find(r=>(r['TicketID']||'').trim()===ticketId);
+  if (row) { row['Description']=newDesc; row['Template Category']='100% template'; }
+
+  btnEl.textContent = 'Saving...';
+  btnEl.disabled = true;
+
+  try {
+    const res = await fetch('/api/update', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ticketId, description: newDesc})
+    });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error);
+    btnEl.textContent = '✅ Saved';
+    showToast(`${ticketId} saved successfully`);
+  } catch {
+    btnEl.textContent = '✅ Updated';
+    showToast('Saved locally (server unreachable)', false);
+  }
+  btnEl.classList.add('done');
+  boxEl.readOnly = true;
+  boxEl.style.borderColor = '#22c55e';
+
+  const filtered = getFiltered();
+  destroyCharts();
+  renderKPI(filtered);
+  renderMonthChart(filtered);
+  renderPieChart(filtered);
+  renderSquadTable(filtered);
+
+  // Re-render person panel if it's still open
+  if (_currentSquad) {
+    const pp = document.getElementById('personPanel');
+    if (pp && pp.style.display !== 'none') {
+      showPersonDetail(_currentSquad);
+    }
+  }
+}
+
+// ── Filters ──────────────────────────────────────────────────────
+function populateSquads(data) {
+  const squads = [...new Set(data.map(r=>r['Squad Name']||'Unknown'))].sort();
+  const sel = document.getElementById('squadFilter');
+  sel.innerHTML = '<option value="all">All Squads</option>';
+  squads.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;sel.appendChild(o);});
+}
+function getFiltered() {
+  const month = document.getElementById('monthFilter').value;
+  const squad = document.getElementById('squadFilter').value;
+  return allData.filter(r=>{
+    const mOk = month==='all'||(r['Ngày tạo']||'').startsWith(month);
+    const sOk = squad==='all'||(r['Squad Name']||'')===squad;
+    return mOk&&sOk;
+  });
+}
+function applyFilters() {
+  const pp=document.getElementById('personPanel');
+  const tp=document.getElementById('ticketPanel');
+  if(pp) pp.style.display='none';
+  if(tp) tp.style.display='none';
+  renderAll(getFiltered());
+}
+
+// ── Render ───────────────────────────────────────────────────────
+function renderAll(data) { destroyCharts(); renderKPI(data); renderMonthChart(data); renderPieChart(data); renderSquadTable(data); }
+
+function renderKPI(data) {
+  const t=data.length, c=countCats(data);
+  document.getElementById('kpi-grid').innerHTML=`
+    <div class="kpi-card total"><div class="kpi-label">Total User Stories</div><div class="kpi-value">${t}</div><div class="kpi-pct">All stories in selected period</div></div>
+    <div class="kpi-card full"><div class="kpi-label">Fully Compliant (100%)</div><div class="kpi-value">${c.full}</div><div class="kpi-pct">${pct(c.full,t)}% of total</div></div>
+    <div class="kpi-card mostly"><div class="kpi-label">Mostly Compliant (75–99%)</div><div class="kpi-value">${c.mostly}</div><div class="kpi-pct">${pct(c.mostly,t)}% of total</div></div>
+    <div class="kpi-card needs"><div class="kpi-label">Needs Improvement (&lt;75%)</div><div class="kpi-value">${c.needs}</div><div class="kpi-pct">${pct(c.needs,t)}% of total</div></div>`;
+}
+
+function renderMonthChart(data) {
+  const months=['01','02','03','04','05','06','07','08','09','10','11','12'];
+  const datasets=ORDER.map(key=>({
+    label:CATS[key].label,
+    data:months.map(m=>data.filter(r=>(r['Ngày tạo']||'').startsWith(`2026-${m}`)&&mapCat(r['Template Category'])===key).length),
+    backgroundColor:CATS[key].color, borderRadius:5, borderSkipped:false,
+  }));
+  charts.push(new Chart(document.getElementById('barChart').getContext('2d'),{
+    type:'bar', data:{labels:months.map(m=>`${parseInt(m)}`),datasets},
+    options:{responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+      scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,beginAtZero:true,ticks:{stepSize:1}}}}
+  }));
+}
+
+function renderPieChart(data) {
+  const c=countCats(data);
+  const active=ORDER.filter(k=>c[k]>0);
+  charts.push(new Chart(document.getElementById('pieChart').getContext('2d'),{
+    type:'doughnut',
+    data:{labels:active.map(k=>CATS[k].label),datasets:[{data:active.map(k=>c[k]),backgroundColor:active.map(k=>CATS[k].color),borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},cutout:'60%'}
+  }));
+}
+
+function renderSquadTable(data) {
+  const squads=[...new Set(data.map(r=>r['Squad Name']||'Unknown'))].sort();
+  const rows=squads.map(sq=>{
+    const sd=data.filter(r=>(r['Squad Name']||'Unknown')===sq);
+    const c=countCats(sd); const t=sd.length;
+    return `<tr class="squad-row" onclick="showPersonDetail('${escH(sq)}')">
+      <td>${escH(sq)}</td><td><strong>${t}</strong></td>
+      <td><div class="prog-wrap"><div class="prog-bar-bg"><div class="prog-bar" style="width:${pct(c.full,t)}%;background:#22c55e"></div></div><span class="prog-label" style="color:#22c55e">${pct(c.full,t)}%</span></div></td>
+      <td><div class="prog-wrap"><div class="prog-bar-bg"><div class="prog-bar" style="width:${pct(c.mostly,t)}%;background:#f59e0b"></div></div><span class="prog-label" style="color:#f59e0b">${pct(c.mostly,t)}%</span></div></td>
+      <td><div class="prog-wrap"><div class="prog-bar-bg"><div class="prog-bar" style="width:${pct(c.needs,t)}%;background:#ef4444"></div></div><span class="prog-label" style="color:#ef4444">${pct(c.needs,t)}%</span></div></td>
+      <td style="color:#9ca3af;font-size:12px">Click to view members →</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('squadTable').innerHTML=`
+    <thead><tr><th>Squad</th><th>Total</th><th>✅ Fully (100%)</th><th>⚠️ Mostly (75–99%)</th><th>❌ Needs (&lt;75%)</th><th></th></tr></thead>
+    <tbody>${rows}</tbody>`;
+}
+
+function showPersonDetail(sq) {
+  _currentSquad = sq;
+  const filtered=getFiltered().filter(r=>(r['Squad Name']||'Unknown')===sq);
+  const people=[...new Set(filtered.map(r=>r['Người tạo']||'Unknown'))].sort();
+  const rows=people.map(p=>{
+    const pd=filtered.filter(r=>r['Người tạo']===p);
+    const c=countCats(pd); const t=pd.length;
+    const mkLink=(cnt,cat)=> cnt>0
+      ? `<span class="count-link ${cat}" onclick="showTickets(event,'${escH(sq)}','${escH(p)}','${cat}')">${cnt} ▶</span>`
+      : `<span class="count-link zero">${cnt}</span>`;
+    return `<tr>
+      <td><strong>${escH(p)}</strong></td><td>${t}</td>
+      <td>${mkLink(c.full,'full')} <span style="color:#9ca3af;font-size:11px">${pct(c.full,t)}%</span></td>
+      <td>${mkLink(c.mostly,'mostly')} <span style="color:#9ca3af;font-size:11px">${pct(c.mostly,t)}%</span></td>
+      <td>${mkLink(c.needs,'needs')} <span style="color:#9ca3af;font-size:11px">${pct(c.needs,t)}%</span></td>
+    </tr>`;
+  }).join('');
+  const pp=document.getElementById('personPanel');
+  pp.style.display='block';
+  document.getElementById('personPanelTitle').textContent=`👤 Team Members — ${sq}`;
+  document.getElementById('personTable').innerHTML=`
+    <thead><tr><th>Member</th><th>Total</th><th>✅ Fully (click ▶)</th><th>⚠️ Mostly (click ▶)</th><th>❌ Needs (click ▶)</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+  pp.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function analyzeReasons(desc, catKey) {
+  if (!desc || !desc.trim()) return ['Empty description'];
+  const d = desc.toLowerCase();
+  const hasContext = /\*\*context\*\*|^context\b/m.test(d);
+  const hasReq     = /\*\*requirement/m.test(d);
+  const hasAC      = /\*\*acceptance.?criteria\*\*|acceptance criteria/m.test(d);
+  const reasons = [];
+  if (!hasContext) reasons.push('Missing Context section');
+  if (!hasReq)     reasons.push('Missing Requirement section');
+  if (!hasAC)      reasons.push('Missing Acceptance Criteria');
+  if (catKey === 'mostly') {
+    if (hasReq && !/services|database|entry point|ui changes|states|tracking/i.test(d))
+      reasons.push('Requirement lacks detail');
+    if (hasAC && !/environment|deploy|monitoring|rollout|feature flag/i.test(d))
+      reasons.push('Acceptance Criteria incomplete');
+  }
+  if (reasons.length === 0) reasons.push('Content below template standard');
+  return reasons;
+}
+
+function showTickets(evt, sq, person, catKey) {
+  evt.stopPropagation();
+  const filtered=getFiltered().filter(r=>
+    (r['Squad Name']||'Unknown')===sq && r['Người tạo']===person && mapCat(r['Template Category'])===catKey
+  );
+  const labels={full:'✅ Fully Compliant',mostly:'⚠️ Mostly Compliant',needs:'❌ Needs Improvement'};
+  const showReasons = catKey === 'mostly' || catKey === 'needs';
+  const tagColor = catKey === 'mostly'
+    ? {bg:'#fef3c7',color:'#b45309'}
+    : {bg:'#fee2e2',color:'#b91c1c'};
+
+  const rows=filtered.map(r=>{
+    const tid=escH(r['TicketID']||'—');
+    const rawTid=(r['TicketID']||'').trim();
+    let reasonsCell = '';
+    if (showReasons) {
+      const reasons = analyzeReasons(r['Description']||'', catKey);
+      reasonsCell = `<td style="min-width:180px;vertical-align:top">${reasons.map(rs=>
+        `<span style="display:inline-block;background:${tagColor.bg};color:${tagColor.color};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin:2px 2px 2px 0">${escH(rs)}</span>`
+      ).join('')}</td>`;
+    }
+    return `<tr>
+      <td style="white-space:nowrap;font-weight:700;color:#6366f1">${tid}</td>
+      <td><span class="status-badge ${statusCls(r['Status'])}">${escH(r['Status']||'—')}</span></td>
+      ${reasonsCell}
+      <td style="min-width:360px">
+        <textarea class="desc-box" id="desc-${tid}" rows="7">${escH(r['Description']||'')}</textarea>
+      </td>
+      <td>
+        <button class="btn btn-sm btn-update" id="btn-${tid}" onclick="updateTicket('${escH(rawTid)}')">Update</button>
+      </td>
+    </tr>`;
+  }).join('');
+  const tp=document.getElementById('ticketPanel');
+  tp.style.display='block';
+  document.getElementById('ticketPanelTitle').textContent=`🎫 Tickets — ${person} | ${labels[catKey]} (${filtered.length})`;
+  const reasonHeader = showReasons ? '<th>Reason for Non-Compliance</th>' : '';
+  document.getElementById('ticketTable').innerHTML=`
+    <thead><tr><th>Ticket ID</th><th>Status</th>${reasonHeader}<th>Description</th><th>Action</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+  tp.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ── Build UI ─────────────────────────────────────────────────────
+function buildUI(data) {
+  allData=data;
+  populateSquads(data);
+  document.getElementById('main').innerHTML=`
+    <div class="kpi-grid" id="kpi-grid"></div>
+    <div class="chart-row">
+      <div class="card"><h2>📈 Monthly Distribution</h2><canvas id="barChart"></canvas></div>
+      <div class="card"><h2>🍩 Overall Compliance Rate</h2><canvas id="pieChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>🏢 Squad Statistics <span style="font-size:11px;color:#9ca3af;font-weight:400">(click a squad to see members)</span></h2>
+      <div class="table-wrap"><table id="squadTable"></table></div>
+    </div>
+    <div class="card" id="personPanel" style="display:none">
+      <div class="panel-header">
+        <h2 id="personPanelTitle"></h2>
+        <button class="btn btn-sm btn-ghost" onclick="document.getElementById('personPanel').style.display='none';document.getElementById('ticketPanel').style.display='none'">✕ Close</button>
+      </div>
+      <div class="table-wrap"><table id="personTable"></table></div>
+    </div>
+    <div class="card" id="ticketPanel" style="display:none">
+      <div class="panel-header">
+        <h2 id="ticketPanelTitle"></h2>
+        <button class="btn btn-sm btn-ghost" onclick="document.getElementById('ticketPanel').style.display='none'">✕ Close</button>
+      </div>
+      <div class="table-wrap"><table id="ticketTable"></table></div>
+    </div>`;
+  renderAll(data);
+}
+
+// Thanh "Dữ liệu & bộ lọc" — mặc định ẩn, bấm mới hiện
+function toggleToolbar() {
+  const t = document.getElementById('toolbar');
+  const open = t.style.display === 'none';
+  t.style.display = open ? 'flex' : 'none';
+  document.getElementById('toolToggle').textContent = '⚙️ Dữ liệu & bộ lọc ' + (open ? '▴' : '▾');
+}
+
+// Trang chủ: chỉ đọc SỐ LƯỢNG ticket để hiện trạng thái, KHÔNG render dashboard (tránh số liệu set sẵn)
+async function initLanding() {
+  try {
+    const res = await fetch('/api/data');
+    const json = await res.json();
+    const n = (json.rows || []).length;
+    const el = document.getElementById('landingStatus');
+    if (el) el.textContent = n
+      ? `📦 Bộ dữ liệu hiện có: ${n} ticket — chưa chấm AI`
+      : '📦 Chưa có dữ liệu — hãy tải lên một file CSV';
+    const badge = document.getElementById('dataBadge');
+    if (n && badge) { badge.classList.add('show'); badge.textContent = `✓ ${n} rows loaded`; }
+  } catch {}
+}
+window.addEventListener('DOMContentLoaded', initLanding);
+
+// ── Template PDF download ─────────────────────────────────────────
+function downloadTemplatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+  const W = doc.internal.pageSize.getWidth();
+  const margin = 18;
+  const usable = W - margin * 2;
+  let y = 0;
+
+  function addPage() { doc.addPage(); y = 18; }
+  function checkY(needed) { if (y + needed > 275) addPage(); }
+
+  function title(text, size, color) {
+    doc.setFontSize(size);
+    doc.setTextColor(...color);
+    checkY(size * 0.5);
+    doc.text(text, margin, y);
+    y += size * 0.45 + 2;
+  }
+  function body(text, size) {
+    doc.setFontSize(size);
+    doc.setTextColor(60, 60, 60);
+    const lines = doc.splitTextToSize(text, usable);
+    lines.forEach(line => { checkY(size * 0.45); doc.text(line, margin, y); y += size * 0.45 + 0.5; });
+    y += 1;
+  }
+  function section(text) { y += 3; title(text, 11, [99, 102, 241]); }
+  function sub(text)    { title(text, 10, [30, 30, 80]); }
+  function bullet(text, indent) {
+    doc.setFontSize(9.5);
+    doc.setTextColor(60, 60, 60);
+    const prefix = indent ? '      • ' : '  • ';
+    const lines = doc.splitTextToSize(prefix + text, usable);
+    lines.forEach((line, i) => {
+      checkY(5);
+      doc.text(line, margin + (i > 0 ? 6 : 0), y);
+      y += 4.2;
+    });
+  }
+  function rule() { y += 2; doc.setDrawColor(200,200,200); doc.line(margin, y, W-margin, y); y += 4; }
+
+  // ── Cover ──────────────────────────────────────────────────────
+  doc.setFillColor(26, 26, 46);
+  doc.rect(0, 0, W, 45, 'F');
+  doc.setFontSize(18); doc.setTextColor(255,255,255);
+  doc.text('Change Request Template', margin, 22);
+  doc.setFontSize(10); doc.setTextColor(136,146,164);
+  doc.text('User Story compliance guide for development teams', margin, 31);
+  y = 54;
+
+  // ── Short version ─────────────────────────────────────────────
+  title('SHORT VERSION', 13, [26,26,46]);
+  body('Use this as the main template when creating a User Story.', 9.5);
+  rule();
+
+  section('**Context');
+  body('Briefly describe why this change is needed, including the current problem, business/product goal, or pain point this change aims to solve.', 9.5);
+
+  section('**Requirement  (choose ONE of 3 types)');
+
+  sub('Option A — Product:');
+  body('Describe expected product behavior from the user\'s perspective: affected users, entry point, UI changes, user actions, system response, states, edge cases, and tracking.', 9.5);
+
+  sub('Option B — Back-end & Front-end Technical:');
+  body('Describe technical changes required: API, database, related services, configuration, dependencies, or diagrams needed for grooming.', 9.5);
+
+  sub('Option C — Configuration:');
+  body('Describe the configuration to change, where it is, how to apply it, and whether a service restart is needed.', 9.5);
+
+  section('**Acceptance Criteria');
+  body('Conditions that must be met for the ticket to be done: expected output, deployment environment, tracking/logging/monitoring, rollout plan, or migration.', 9.5);
+
+  rule();
+
+  // ── How to choose ─────────────────────────────────────────────
+  title('HOW TO CHOOSE REQUIREMENT TYPE', 13, [26,26,46]);
+  bullet('Product — change affects end-user experience (UI, flow, behavior)', false);
+  bullet('Back-end / Front-end Technical — change is at the technical layer (API, database, service)', false);
+  bullet('Configuration — only changing config (feature flag, parameter, secret) without touching business logic', false);
+
+  rule();
+
+  // ── Full version ──────────────────────────────────────────────
+  title('FULL VERSION  (detailed guiding questions)', 13, [26,26,46]);
+  body('Use these questions to make sure every section is complete.', 9.5);
+  y += 2;
+
+  section('Context');
+  bullet('Why does this need to change? (Business goal, user pain point, or problem — 1-2 sentences)', false);
+
+  section('Requirement → Product');
+  bullet('Who is affected? User states / permissions? (new/existing, logged in/out, eligible/not)', false);
+  bullet('Where is the entry point? (screen, CTA, tab, icon, deeplink)', false);
+  bullet('What changes on the UI? (new/removed components, layout, buttons, tabs, fields, badges)', false);
+  bullet('What states need to be handled? (default, loading, empty, success, error, disabled, expired)', false);
+  bullet('What can users do? (click, search, filter, sort, toggle, confirm, cancel)', false);
+  bullet('What happens after each action? (toast, popup, bottom sheet, redirect, auto-fill, refresh)', false);
+  bullet('Edge cases? (0/Null values, no data, long text, multiple records, out-of-range values)', false);
+  bullet('Event tracking needed? (screen view, CTA click, filter selection, form submit)', false);
+  bullet('Figma, mockup, prototype, demo link, or reference screen?', false);
+
+  section('Requirement → Back-end & Front-end Technical');
+  bullet('What will we change? (one clear sentence)', false);
+  bullet('New database changes?', false);
+  bullet('Expected request/response structure? (from server/client)', false);
+  bullet('How many services involved?', false);
+  bullet('Any configuration changes or new stack definitions?', false);
+  bullet('Diagram to describe the changes?', false);
+  bullet('Figma, mockup, prototype, demo link, or reference screen?', false);
+
+  section('Requirement → Configuration');
+  bullet('What/Where is the configuration to change? (Tool/File/Database/Redis/CMDB)', false);
+  bullet('Need to restart services? Which ones?', false);
+
+  section('Acceptance Criteria');
+  bullet('What must be completed before this ticket is done?', false);
+  bullet('Which environment should the ticket be deployed to?', false);
+  bullet('Does it require tracking, logging, monitoring, or alerting?', false);
+  bullet('Does it require a rollout plan, feature flag, migration, or backfill?', false);
+
+  doc.save('Change_Request_Template.pdf');
+}
+
+// ── Chat ─────────────────────────────────────────────────────────
+let chatHistory = [];
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatPanel').classList.toggle('open', chatOpen);
+  document.body.classList.toggle('chat-open', chatOpen);   // dời/đóng dashboard
+  if (chatOpen) document.getElementById('chatInput').focus();
+}
+
+function appendMsg(role, text) {
+  const el = document.createElement('div');
+  el.className = `chat-msg ${role}`;
+  el.textContent = text;
+  const msgs = document.getElementById('chatMessages');
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+  return el;
+}
+
+function sendSug(text) {
+  document.getElementById('chatSugs').style.display = 'none';
+  document.getElementById('chatInput').value = text;
+  sendChat();
+}
+
+function appendMsgHTML(role, html) {
+  const el = document.createElement('div');
+  el.className = `chat-msg ${role}`;
+  el.innerHTML = html;
+  const msgs = document.getElementById('chatMessages');
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+  return el;
+}
+
+// Chuyển markdown đơn giản -> HTML an toàn (escape trước, rồi bold/code/bullet/xuống dòng)
+function mdToHtml(t) {
+  let s = String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');   // **đậm**
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');             // `code`
+  s = s.replace(/(^|\n)\s*[-*]\s+/g, '$1• ');                 // gạch đầu dòng -> •
+  s = s.replace(/\n/g, '<br>');                               // xuống dòng
+  return s;
+}
+
+// Only match explicit intent to RECEIVE the template file, not questions about the template
+const TEMPLATE_DOWNLOAD_RE = new RegExp(
+  // Download/receive verb immediately before "template"
+  '\\b(?:download|tải\\s*(?:về)?|lấy|xin|share|xuất|export)\\s+(?:(?:file|tệp|bản|mẫu)\\s+)?template\\b' +
+  // template followed by download indicator
+  '|\\btemplate\\s+(?:tải\\s*về|download)\\b' +
+  // "gửi mình/tôi/cho mình template"
+  '|\\bgửi\\s+(?:mình|tôi|em|anh|cho\\s+(?:mình|tôi|em))\\s+(?:(?:file|mẫu)\\s+)?template\\b' +
+  // "cho mình/tôi template"
+  '|\\bcho\\s+(?:mình|tôi|em|anh)\\s+(?:(?:xem|có|lấy|nhận)\\s+)?template\\b' +
+  // English: "send me the template", "give me template", "get the template"
+  '|\\b(?:send|give)\\s+(?:me\\s+)?(?:the\\s+)?template\\b' +
+  '|\\bget\\s+(?:the\\s+)?template\\b',
+  'i'
+);
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSendBtn');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  document.getElementById('chatSugs').style.display = 'none';
+  appendMsg('user', text);
+  chatHistory.push({ role: 'user', content: text });
+
+  // Intercept template download requests
+  if (TEMPLATE_DOWNLOAD_RE.test(text)) {
+    const replyText = 'Here\'s the Change Request Template as a PDF — click below to download 📄';
+    const el = appendMsgHTML('bot',
+      `${replyText}<br><br>` +
+      `<button onclick="downloadTemplatePDF()" style="` +
+        `display:inline-flex;align-items:center;gap:6px;` +
+        `background:#6366f1;color:#fff;border:none;border-radius:8px;` +
+        `padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;` +
+      `">⬇️ Download Template PDF</button>`
+    );
+    chatHistory.push({ role: 'assistant', content: replyText });
+    sendBtn.disabled = false;
+    input.focus();
+    return;
+  }
+
+  sendBtn.disabled = true;
+  const typing = appendMsg('bot', '...');
+  typing.classList.add('typing');
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory })
+    });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error || 'Error');
+    typing.remove();
+    const reply = json.reply;
+    appendMsgHTML('bot', mdToHtml(reply));
+    chatHistory.push({ role: 'assistant', content: reply });
+  } catch (e) {
+    const isNetworkErr = e instanceof TypeError;
+    typing.textContent = isNetworkErr
+      ? '⚠️ Cannot reach server. Please run: python3 server.py (make sure openai and python-dotenv are installed, and .env has LLM credentials).'
+      : `⚠️ ${e.message}`;
+    typing.classList.remove('typing');
+  }
+  sendBtn.disabled = false;
+  input.focus();
+}
+</script>
+</body>
+</html>

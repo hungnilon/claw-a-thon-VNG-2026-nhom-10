@@ -1,0 +1,12 @@
+.env
+.greennode.json
+__pycache__
+*.pyc
+.git
+.viminfo
+.DS_Store
+*.swp
+*.swo
+.*.sw?
+.idea
+.vscode

@@ -1,0 +1,11 @@
+runtime.env
+.env
+*.env
+!*.env.example
+__pycache__/
+*.pyc
+.viminfo
+.DS_Store
+*.swp
+.idea/
+.vscode/
