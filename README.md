@@ -1,4 +1,4 @@
-# User Story Compliance Report — AI Agent (GreenNode)
+# User Story Compliance Agent — AI Agent (GreenNode)
 
 Agent dùng AI chấm mức độ tuân thủ **Change Request Template** của user story, tổng hợp
 thành báo cáo trực quan, kèm một **trợ lý PM** hỏi đáp. Chạy trên **GreenNode AgentBase**,
