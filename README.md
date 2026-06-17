@@ -55,7 +55,7 @@ docker run --platform linux/amd64 --rm -p 8080:8080 --env-file runtime.env user-
 
 ## Deploy lên GreenNode AgentBase
 Push image lên Container Registry rồi tạo/Update Agent Runtime với Image URL
-`vcr.vngcloud.vn/<repo>/user-story-report-agent-gemma:1.3`, cổng 8080, set các biến môi trường ở trên.
+`vcr.vngcloud.vn/111480-abp112158/user-story-report-agent-gemma:1.3`, cổng 8080, set các biến môi trường ở trên.
 
 ---
 *Lưu ý: agent có sử dụng AI; kết quả mang tính hỗ trợ, người dùng nên rà soát lại.*
