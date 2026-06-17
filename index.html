@@ -424,7 +424,10 @@ async function updateTicket(ticketId) {
   boxEl.style.borderColor = '#22c55e';
 
   const filtered = getFiltered();
+  destroyCharts();
   renderKPI(filtered);
+  renderMonthChart(filtered);
+  renderPieChart(filtered);
   renderSquadTable(filtered);
 
   // Re-render person panel if it's still open
@@ -461,7 +464,7 @@ function applyFilters() {
 }
 
 // ── Render ───────────────────────────────────────────────────────
-function renderAll(data) { renderKPI(data); renderSquadTable(data); }
+function renderAll(data) { destroyCharts(); renderKPI(data); renderMonthChart(data); renderPieChart(data); renderSquadTable(data); }
 
 function renderKPI(data) {
   const t=data.length, c=countCats(data);
@@ -610,6 +613,10 @@ function buildUI(data) {
   populateSquads(data);
   document.getElementById('main').innerHTML=`
     <div class="kpi-grid" id="kpi-grid"></div>
+    <div class="chart-row">
+      <div class="card"><h2>📈 Monthly Distribution</h2><canvas id="barChart"></canvas></div>
+      <div class="card"><h2>🍩 Overall Compliance Rate</h2><canvas id="pieChart"></canvas></div>
+    </div>
     <div class="card">
       <h2>🏢 Squad Statistics <span style="font-size:11px;color:#9ca3af;font-weight:400">(click a squad to see members)</span></h2>
       <div class="table-wrap"><table id="squadTable"></table></div>
